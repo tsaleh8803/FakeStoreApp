@@ -7,6 +7,12 @@
 
 import UIKit
 
-class FakeStoreTableViewCell: UITableViewCell {
+class ProductCell: UITableViewCell {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var productImage: UIImageView!
+    
     
 }

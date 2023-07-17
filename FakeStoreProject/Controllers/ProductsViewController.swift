@@ -17,17 +17,22 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        //URL that contains JSON data for all products
-        productsLoader.fetchProducts { products in
-            DispatchQueue.main.async {
+        productsLoader.fetchProducts { result in
+            switch result {
+            case .success(let products):
+                DispatchQueue.main.async {
                 self.productList = products
                 self.tableView.reloadData()
             }
+            case .failure(let error):
+                print(String(describing: error))
+            
+            }
+            
         }
         
         tableView.delegate = self
         tableView.dataSource = self
-        
         title = "Products"
     }
     
@@ -40,16 +45,29 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
         let product = productList[indexPath.row]
         
         cell.titleLabel.text = product.title
-        cell.IDLabel.text = String(product.id)
         cell.categoryLabel.text = product.category
-        cell.priceLabel.text = String(productList[indexPath.row].price)
-        cell.descriptionLabel.text = productList[indexPath.row].description
-        cell.productImage.downloaded(from: URL(string: productList[indexPath.row].image)!)
+        cell.priceLabel.text = String(product.price)
+        cell.productImage.downloaded(from: URL(string: product.image)!)
         
         return cell
     }
-}
-
-protocol ProductsLoader {
-    func fetchProducts(completion: @escaping ([Product]) -> Void)
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "DetailsViewController", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "details") as! DetailsViewController
+        vc.product = productList[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = view.backgroundColor
+        return headerView
+        
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
+    }
 }
