@@ -11,7 +11,7 @@
         <scene sceneID="SuU-ne-4Pp">
             <objects>
                 <tableViewController id="94y-bI-4gb" customClass="DetailsViewController" customModule="FakeStoreProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="qf5-zn-26T">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="qf5-zn-26T">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -66,21 +66,37 @@
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIb-Ui-tqp">
+                                                            <rect key="frame" x="0.0" y="24.333333333333336" width="353" height="50.000000000000007"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pyr-Ow-NIv">
+                                                                    <rect key="frame" x="241.66666666666671" y="8" width="111.33333333333334" height="34.333333333333336"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="filled" title="Add to Cart"/>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="Y4x-H7-DMC"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Pyr-Ow-NIv" secondAttribute="trailing" id="kp1-EH-Nz2"/>
+                                                                <constraint firstItem="Pyr-Ow-NIv" firstAttribute="centerY" secondItem="VIb-Ui-tqp" secondAttribute="centerY" id="qCp-dB-57v"/>
+                                                            </constraints>
+                                                        </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeB-Z1-YF8">
-                                                            <rect key="frame" x="0.0" y="24.333333333333336" width="353" height="20.333333333333336"/>
+                                                            <rect key="frame" x="0.0" y="78.333333333333329" width="353" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6h-S0-LcA">
-                                                            <rect key="frame" x="0.0" y="48.666666666666664" width="353" height="81.333333333333343"/>
-                                                            <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. </string>
+                                                            <rect key="frame" x="0.0" y="102.66666666666667" width="353" height="182.66666666666663"/>
+                                                            <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yki-Ty-Uah">
-                                                            <rect key="frame" x="0.0" y="134" width="353" height="218"/>
+                                                            <rect key="frame" x="0.0" y="289.33333333333331" width="353" height="62.666666666666686"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                     </subviews>
