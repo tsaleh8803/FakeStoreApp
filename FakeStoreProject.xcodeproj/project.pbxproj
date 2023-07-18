@@ -20,6 +20,7 @@
 		04D52F772A6133B800E3BC03 /* ProductsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D52F762A6133B800E3BC03 /* ProductsLoader.swift */; };
 		04D52F792A6137ED00E3BC03 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D52F782A6137ED00E3BC03 /* DetailsViewController.swift */; };
 		04D52F7D2A65589700E3BC03 /* DetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D52F7C2A65589700E3BC03 /* DetailsViewController.storyboard */; };
+		04D52F7F2A66782800E3BC03 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D52F7E2A66782800E3BC03 /* Cart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		04D52F762A6133B800E3BC03 /* ProductsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsLoader.swift; sourceTree = "<group>"; };
 		04D52F782A6137ED00E3BC03 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		04D52F7C2A65589700E3BC03 /* DetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsViewController.storyboard; sourceTree = "<group>"; };
+		04D52F7E2A66782800E3BC03 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				04D52F642A5FF0C700E3BC03 /* Product.swift */,
+				04D52F7E2A66782800E3BC03 /* Cart.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				04D52F542A5FF01E00E3BC03 /* ProductsViewController.swift in Sources */,
 				04D52F652A5FF0C700E3BC03 /* Product.swift in Sources */,
 				04D52F502A5FF01E00E3BC03 /* AppDelegate.swift in Sources */,
+				04D52F7F2A66782800E3BC03 /* Cart.swift in Sources */,
 				04D52F6F2A60352100E3BC03 /* RemoteProductsLoader.swift in Sources */,
 				04D52F522A5FF01E00E3BC03 /* SceneDelegate.swift in Sources */,
 			);

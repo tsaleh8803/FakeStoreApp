@@ -7,9 +7,9 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UITableViewController {
 
-    var product: Product?
+    var product: Product!
     
     @IBOutlet weak var productImage: UIImageView!
     
@@ -22,20 +22,17 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = UITableView.automaticDimension
+        
         productDetails(product: product)
     }
     
-    private func productDetails(product: Product?){
-        if let selectedProduct = product {
-            titleLabel.text = selectedProduct.title
-            categoryLabel.text = selectedProduct.category
-            priceLabel.text = String(selectedProduct.price)
-            descriptionLabel.text = selectedProduct.description
-            productImage.downloaded(from: URL(string: selectedProduct.image)!)
-            ratingLabel.text = String(selectedProduct.rating.rate) + ", " + String(selectedProduct.rating.count)
-        }
-        
-        
+    private func productDetails(product: Product) {
+        titleLabel.text = product.title
+        categoryLabel.text = product.category
+        priceLabel.text = String(product.price)
+        descriptionLabel.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. "//product.description
+        productImage.downloaded(from: URL(string: product.image)!)
     }
-
 }

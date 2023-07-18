@@ -54,7 +54,7 @@ class ProductsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "DetailsViewController", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "details") as! DetailsViewController
+        let vc = storyboard.instantiateInitialViewController() as! DetailsViewController
         vc.product = productList[indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(vc, animated: true)
