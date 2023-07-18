@@ -21,12 +21,6 @@ class DetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = UITableView.automaticDimension
-        tableView.tableHeaderView = nil
-        tableView.tableFooterView = nil
-        navigationController?.navigationBar.scrollEdgeAppearance = nil
         productDetails(product: product)
     }
     
