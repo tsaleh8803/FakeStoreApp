@@ -57,14 +57,15 @@ class DetailsViewController: UITableViewController {
         let heartImage = UIImage(named: "heart")
         
         if ((buttonImage?.isEqual(heartImage)) != nil){
-            likedButton.setImage(UIImage(named: "pencil"), for: .normal)
+            likedButton.setImage(UIImage(named: "heart.fill"), for: .normal)
+            //likedButton.imageView?.image = UIImage(named: "pencil")
             addLikedProduct(product: product)
             for i in 0..<likedProductList.count {
                 print("Liked Product \(i): is Liked: \(self.product.isLiked)" + likedProductList[i].title!)
             }
         }
         else{
-            likedButton.setImage(UIImage(named: "heart.fill"), for: .normal)
+            likedButton.setImage(heartImage,for: .normal)
             deleteProduct(product: product)
         }
         

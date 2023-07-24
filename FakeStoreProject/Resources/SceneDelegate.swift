@@ -14,14 +14,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     
-        let storyboard = UIStoryboard(name: "ProductsViewController", bundle: nil)
+       // let storyboard = UIStoryboard(name: "ProductsViewController", bundle: nil)
         
-        let vc = storyboard.instantiateInitialViewController() as! ProductsViewController
-        vc.productsLoader = RemoteProductsLoader()
+        //let vc = storyboard.instantiateInitialViewController() as! ProductsViewController
+        
+        //vc.productsLoader = RemoteProductsLoader()
        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = UINavigationController(rootViewController: vc)
+       // window.rootViewController = UINavigationController(rootViewController: vc)
+        window.rootViewController = TabViewController()
         window.makeKeyAndVisible()
         self.window = window
         

@@ -18,15 +18,15 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
     
     var likedProductList = [LikedProduct]()
     
-    var productsLoader: ProductsLoader!
-        
+    var productsLoader: ProductsLoader = RemoteProductsLoader()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        productsLoader?.fetchProducts { result in
+        productsLoader.fetchProducts { result in
             switch result {
             case .success(let products):
                 DispatchQueue.main.async {
