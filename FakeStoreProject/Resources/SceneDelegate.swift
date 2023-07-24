@@ -15,6 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
     
         let storyboard = UIStoryboard(name: "ProductsViewController", bundle: nil)
+        
         let vc = storyboard.instantiateInitialViewController() as! ProductsViewController
         vc.productsLoader = RemoteProductsLoader()
        

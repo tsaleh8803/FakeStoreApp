@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Product {
-    
+struct RemoteProduct: Codable {
+
     let id: Int
     let title: String
     let price: Double
@@ -17,6 +17,11 @@ struct Product {
     let category: String
     let image: String
     let rating: Rating
-    var isLiked: Bool
+
+}
+
+struct Rating: Codable {
+    let rate: Double
+    let count: Int
 }
 

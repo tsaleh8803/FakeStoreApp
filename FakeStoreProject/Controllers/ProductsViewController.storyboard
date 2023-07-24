@@ -34,25 +34,22 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaS-JA-paW">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaS-JA-paW">
                                                     <rect key="frame" x="208" y="126" width="80" height="28"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mc-DO-9F9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mc-DO-9F9">
                                                     <rect key="frame" x="208" y="83" width="163" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNn-RA-eFW">
-                                                    <rect key="frame" x="317" y="123" width="56" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNn-RA-eFW">
+                                                    <rect key="frame" x="328" y="123" width="55" height="35"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="Buy">
+                                                    <buttonConfiguration key="configuration" style="plain" title="buy">
                                                         <backgroundConfiguration key="background">
                                                             <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                         </backgroundConfiguration>
@@ -71,10 +68,22 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zqE-LS-zxO">
+                                                    <rect key="frame" x="320" y="143" width="71" height="62"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="fNn-RA-eFW" secondAttribute="bottom" constant="40" id="Fu9-n0-VTE"/>
+                                                <constraint firstItem="fNn-RA-eFW" firstAttribute="leading" secondItem="kaS-JA-paW" secondAttribute="trailing" id="KXC-hj-fDZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="fNn-RA-eFW" secondAttribute="trailing" constant="10" id="j1A-TT-LYU"/>
+                                                <constraint firstAttribute="trailing" secondItem="fNn-RA-eFW" secondAttribute="trailing" constant="10" id="kc3-5j-pgv"/>
+                                                <constraint firstItem="fNn-RA-eFW" firstAttribute="top" secondItem="1mc-DO-9F9" secondAttribute="bottom" constant="5" id="x4z-Rc-5qq"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="categoryLabel" destination="1mc-DO-9F9" id="cd3-rR-7aU"/>
+                                            <outlet property="likedLabel" destination="zqE-LS-zxO" id="Hm1-KV-7NG"/>
                                             <outlet property="priceLabel" destination="kaS-JA-paW" id="evZ-zx-d47"/>
                                             <outlet property="productImage" destination="Kdz-iO-ReU" id="w9r-uk-W5w"/>
                                             <outlet property="titleLabel" destination="kVI-bW-q8M" id="tOo-tx-dYt"/>

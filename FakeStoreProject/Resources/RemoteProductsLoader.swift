@@ -18,8 +18,11 @@ final class RemoteProductsLoader: ProductsLoader {
             
             if error == nil {
                 do {
-                    let results = try JSONDecoder().decode([Product].self, from: data!)
-                    completion(.success(results))
+                    let results = try JSONDecoder().decode([RemoteProduct].self, from: data!)
+                    let products = results.map { remoteProduct in
+                        Product(id: remoteProduct.id, title: remoteProduct.title, price: remoteProduct.price, description: remoteProduct.description, category: remoteProduct.category, image: remoteProduct.image, rating: remoteProduct.rating, isLiked: false)
+                    }
+                    completion(.success(products))
                 }
                 catch {
                     print("data could not be decoded: \(error)")

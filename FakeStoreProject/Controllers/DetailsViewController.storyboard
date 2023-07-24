@@ -70,9 +70,12 @@
                                                             <rect key="frame" x="0.0" y="24.333333333333336" width="353" height="50.000000000000007"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pyr-Ow-NIv">
-                                                                    <rect key="frame" x="241.66666666666671" y="8" width="111.33333333333334" height="34.333333333333336"/>
+                                                                    <rect key="frame" x="302.33333333333331" y="8" width="50.666666666666686" height="34.333333333333336"/>
                                                                     <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="filled" title="Add to Cart"/>
+                                                                    <buttonConfiguration key="configuration" style="filled" image="heart" catalog="system"/>
+                                                                    <connections>
+                                                                        <action selector="likeButtonPressed:" destination="94y-bI-4gb" eventType="touchUpInside" id="nWH-DK-km6"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -121,6 +124,7 @@
                     <connections>
                         <outlet property="categoryLabel" destination="UeB-Z1-YF8" id="fjw-hn-cIR"/>
                         <outlet property="descriptionLabel" destination="x6h-S0-LcA" id="nop-4S-bFB"/>
+                        <outlet property="likedButton" destination="Pyr-Ow-NIv" id="kYf-u7-10A"/>
                         <outlet property="priceLabel" destination="IsF-JQ-nXD" id="yf6-ap-s6L"/>
                         <outlet property="productImage" destination="qJw-fq-efZ" id="m4G-qL-uW7"/>
                         <outlet property="titleLabel" destination="Sx2-gJ-PTE" id="RvM-QH-ako"/>
@@ -132,6 +136,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
