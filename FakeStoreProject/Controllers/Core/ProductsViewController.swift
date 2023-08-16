@@ -62,14 +62,12 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
         let storyboard = UIStoryboard(name: "DetailsViewController", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as! DetailsViewController
         vc.product = productList[indexPath.row]
-        //addLikedProduct(product: productList[indexPath.row])
         let store = CoreDataLikedProductsStore(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
         vc.deleteDelegate = store
         vc.likeDelegate = store
         vc.checkerDelegate = store
         tableView.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(vc, animated: true)
-        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
