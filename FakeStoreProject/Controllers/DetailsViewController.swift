@@ -15,7 +15,15 @@ class DetailsViewController: UITableViewController {
     
     var likedProductList = [LikedProduct]()
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    public var likeDelegate: LikeProduct?
+    
+    public var deleteDelegate: DeleteProduct?
+    
+    public var checkerDelegate: FetchProduct?
+    
+    let heartImage = UIImage(systemName: "heart")
+    let heartImageFilled = UIImage(systemName: "heart.fill")
+
     
     @IBOutlet weak var productImage: UIImageView!
     
@@ -29,8 +37,16 @@ class DetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         productDetails(product: product)
+        if (checkerDelegate!.checkIfProductLiked(product: product)) {
+            likedButton.setImage(heartImageFilled, for: .normal)
+            print("product is in core data")
+        }
+        else {
+            print("product is not in core data")
+        }
+        
     }
-    
+
     private func productDetails(product: Product) {
         titleLabel.text = product.title
         categoryLabel.text = product.category
@@ -51,71 +67,20 @@ class DetailsViewController: UITableViewController {
         return 0
     }
     
-    @IBAction func likeButtonPressed(_ sender: Any) {
-        
-        let buttonImage = likedButton.imageView?.image
-        let heartImage = UIImage(named: "heart")
-        
-        if ((buttonImage?.isEqual(heartImage)) != nil){
-            likedButton.setImage(UIImage(named: "heart.fill"), for: .normal)
-            //likedButton.imageView?.image = UIImage(named: "pencil")
-            addLikedProduct(product: product)
-            for i in 0..<likedProductList.count {
-                print("Liked Product \(i): is Liked: \(self.product.isLiked)" + likedProductList[i].title!)
-            }
+    @IBAction func likeButtonPressed(_ sender: UIButton) {
+
+        if (!checkerDelegate!.checkIfProductLiked(product: product)) {
+            product.isLiked = true
+            likedButton.setImage(heartImageFilled, for: .normal)
+            likeDelegate?.addLikedProduct(product: product)
         }
-        else{
+        else {
+            product.isLiked = false
             likedButton.setImage(heartImage,for: .normal)
-            deleteProduct(product: product)
+            deleteDelegate?.deleteProduct(product: product)
+
         }
         
-    }
-    
-    public func getAllProducts() {
-       
-        do {
-            likedProductList = try context.fetch(LikedProduct.fetchRequest())
-        }
-        catch {
-            
-        }
-       
-    }
-    public func addLikedProduct(product: Product) {
-        let newLikedProduct = LikedProduct(context: context)
-        newLikedProduct.title = product.title
-        newLikedProduct.category = product.category
-        newLikedProduct.price = product.price
-        self.product.isLiked = true
-        do {
-            try context.save()
-            getAllProducts()
-        }
-        catch {
-            
-        }
-        
-    }
-    
-    public func deleteProduct(product: Product) {
-        let request = LikedProduct.fetchRequest()
-        request.predicate = NSPredicate(format: "id = %@", product.id)
-        self.product.isLiked = false
-        do {
-            let savedProduct = try context.fetch(request).first
-            savedProduct.map(context.delete)
-            
-        }
-        catch {
-            
-        }
-        do {
-            try context.save()
-            getAllProducts()
-        }
-        catch{
-            
-        }
     }
     
 }

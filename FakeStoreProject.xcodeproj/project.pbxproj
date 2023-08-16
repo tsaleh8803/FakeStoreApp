@@ -27,6 +27,10 @@
 		04D52FAB2A69163D00E3BC03 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D52FAA2A69163D00E3BC03 /* CartViewController.swift */; };
 		04D52FB82A6E6E9E00E3BC03 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D52FB72A6E6E9E00E3BC03 /* Product.swift */; };
 		04D52FBF2A6E71BB00E3BC03 /* LikedProduct+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D52FBD2A6E71BB00E3BC03 /* LikedProduct+CoreDataClass.swift */; };
+		04D52FC42A8CBE6200E3BC03 /* LikeProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D52FC32A8CBE6200E3BC03 /* LikeProduct.swift */; };
+		04D52FC62A8CBFAD00E3BC03 /* CoreDataLikedProductsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D52FC52A8CBFAD00E3BC03 /* CoreDataLikedProductsStore.swift */; };
+		04D52FC82A8CC57F00E3BC03 /* DeleteProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D52FC72A8CC57F00E3BC03 /* DeleteProduct.swift */; };
+		04D52FCA2A8CC59900E3BC03 /* FetchProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D52FC92A8CC59900E3BC03 /* FetchProduct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		04D52FAA2A69163D00E3BC03 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		04D52FB72A6E6E9E00E3BC03 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		04D52FBD2A6E71BB00E3BC03 /* LikedProduct+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LikedProduct+CoreDataClass.swift"; sourceTree = "<group>"; };
+		04D52FC32A8CBE6200E3BC03 /* LikeProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeProduct.swift; sourceTree = "<group>"; };
+		04D52FC52A8CBFAD00E3BC03 /* CoreDataLikedProductsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLikedProductsStore.swift; sourceTree = "<group>"; };
+		04D52FC72A8CC57F00E3BC03 /* DeleteProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProduct.swift; sourceTree = "<group>"; };
+		04D52FC92A8CC59900E3BC03 /* FetchProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchProduct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,8 @@
 				04D52FBD2A6E71BB00E3BC03 /* LikedProduct+CoreDataClass.swift */,
 				04D52F5D2A5FF01F00E3BC03 /* Info.plist */,
 				04D52F672A5FF14200E3BC03 /* Resources */,
+				04D52FCB2A8CC5ED00E3BC03 /* Protocols */,
+				04D52FCD2A8CE73000E3BC03 /* Managers */,
 				04D52F662A5FF13500E3BC03 /* Controllers */,
 				04D52F632A5FF0BE00E3BC03 /* Models */,
 				04D52FA32A67C1E700E3BC03 /* FakeStoreProjectDataModel.xcdatamodeld */,
@@ -108,13 +118,9 @@
 		04D52F662A5FF13500E3BC03 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				04D52F532A5FF01E00E3BC03 /* ProductsViewController.swift */,
-				04D52F6C2A60066300E3BC03 /* ProductsViewController.storyboard */,
+				04D52FCC2A8CE71600E3BC03 /* Core */,
 				04D52F782A6137ED00E3BC03 /* DetailsViewController.swift */,
 				04D52F7C2A65589700E3BC03 /* DetailsViewController.storyboard */,
-				04D52FA62A6914BA00E3BC03 /* TabViewController.swift */,
-				04D52FA82A69162B00E3BC03 /* LikedProductsViewController.swift */,
-				04D52FAA2A69163D00E3BC03 /* CartViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -123,14 +129,44 @@
 			isa = PBXGroup;
 			children = (
 				04D52F702A6041DC00E3BC03 /* UIImageView+Extensions.swift */,
-				04D52F6E2A60352100E3BC03 /* RemoteProductsLoader.swift */,
-				04D52F762A6133B800E3BC03 /* ProductsLoader.swift */,
 				04D52F4F2A5FF01E00E3BC03 /* AppDelegate.swift */,
 				04D52F512A5FF01E00E3BC03 /* SceneDelegate.swift */,
 				04D52F582A5FF01F00E3BC03 /* Assets.xcassets */,
 				04D52F5A2A5FF01F00E3BC03 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		04D52FCB2A8CC5ED00E3BC03 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				04D52F762A6133B800E3BC03 /* ProductsLoader.swift */,
+				04D52FC32A8CBE6200E3BC03 /* LikeProduct.swift */,
+				04D52FC72A8CC57F00E3BC03 /* DeleteProduct.swift */,
+				04D52FC92A8CC59900E3BC03 /* FetchProduct.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		04D52FCC2A8CE71600E3BC03 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				04D52FA62A6914BA00E3BC03 /* TabViewController.swift */,
+				04D52F532A5FF01E00E3BC03 /* ProductsViewController.swift */,
+				04D52F6C2A60066300E3BC03 /* ProductsViewController.storyboard */,
+				04D52FA82A69162B00E3BC03 /* LikedProductsViewController.swift */,
+				04D52FAA2A69163D00E3BC03 /* CartViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		04D52FCD2A8CE73000E3BC03 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				04D52F6E2A60352100E3BC03 /* RemoteProductsLoader.swift */,
+				04D52FC52A8CBFAD00E3BC03 /* CoreDataLikedProductsStore.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,12 +245,16 @@
 				04D52F6A2A5FFAC100E3BC03 /* ProductCell.swift in Sources */,
 				04D52FBF2A6E71BB00E3BC03 /* LikedProduct+CoreDataClass.swift in Sources */,
 				04D52FAB2A69163D00E3BC03 /* CartViewController.swift in Sources */,
+				04D52FC62A8CBFAD00E3BC03 /* CoreDataLikedProductsStore.swift in Sources */,
+				04D52FC82A8CC57F00E3BC03 /* DeleteProduct.swift in Sources */,
 				04D52FA92A69162B00E3BC03 /* LikedProductsViewController.swift in Sources */,
 				04D52F712A6041DC00E3BC03 /* UIImageView+Extensions.swift in Sources */,
+				04D52FCA2A8CC59900E3BC03 /* FetchProduct.swift in Sources */,
 				04D52FB82A6E6E9E00E3BC03 /* Product.swift in Sources */,
 				04D52F792A6137ED00E3BC03 /* DetailsViewController.swift in Sources */,
 				04D52F772A6133B800E3BC03 /* ProductsLoader.swift in Sources */,
 				04D52F542A5FF01E00E3BC03 /* ProductsViewController.swift in Sources */,
+				04D52FC42A8CBE6200E3BC03 /* LikeProduct.swift in Sources */,
 				04D52F652A5FF0C700E3BC03 /* RemoteProduct.swift in Sources */,
 				04D52F502A5FF01E00E3BC03 /* AppDelegate.swift in Sources */,
 				04D52F7F2A66782800E3BC03 /* Cart.swift in Sources */,

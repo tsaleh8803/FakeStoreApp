@@ -12,12 +12,8 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBOutlet weak var tableView: UITableView!
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     var productList = [Product]()
-    
-    var likedProductList = [LikedProduct]()
-    
+
     var productsLoader: ProductsLoader = RemoteProductsLoader()
 
     override func viewDidLoad() {
@@ -32,7 +28,6 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
                 DispatchQueue.main.async {
                 self.productList = products
                 self.tableView.reloadData()
-                    print("success")
             }
             case .failure(let error):
                 print(String(describing: error))
@@ -68,7 +63,10 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
         let vc = storyboard.instantiateInitialViewController() as! DetailsViewController
         vc.product = productList[indexPath.row]
         //addLikedProduct(product: productList[indexPath.row])
-        
+        let store = CoreDataLikedProductsStore(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+        vc.deleteDelegate = store
+        vc.likeDelegate = store
+        vc.checkerDelegate = store
         tableView.deselectRow(at: indexPath, animated: true)
         self.navigationController?.pushViewController(vc, animated: true)
         
@@ -82,32 +80,6 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 20
-    }
-    
-    public func getAllProducts() {
-       
-        do {
-            likedProductList = try context.fetch(LikedProduct.fetchRequest())
-        }
-        catch {
-            
-        }
-       
-    }
-    public func addLikedProduct(product: Product) {
-        let entity = NSEntityDescription.entity(forEntityName: "LikedProduct", in: context)!
-        let newLikedProduct = NSManagedObject(entity: entity, insertInto: context)
-        newLikedProduct.setValue(product.title, forKey: "title")
-        newLikedProduct.setValue(product.category, forKey: "category")
-        newLikedProduct.setValue(product.price, forKey: "price")
-        do {
-            try context.save()
-            getAllProducts()
-        }
-        catch {
-            
-        }
-        
     }
   
     

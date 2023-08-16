@@ -12,7 +12,7 @@ import CoreData
 @objc(LikedProduct)
 public class LikedProduct: NSManagedObject {
 
-    @NSManaged public var id: Int16
+    @NSManaged public var id: Int32
     @NSManaged public var title: String?
     @NSManaged public var price: Double
     @NSManaged public var desc: String?

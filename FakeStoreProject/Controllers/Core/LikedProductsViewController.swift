@@ -17,13 +17,18 @@ final class LikedProductsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemRed
+        title = "Liked"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         do {
             let likedProducts = try context.fetch(LikedProduct.fetchRequest())
+            for i in 0..<likedProducts.count {
+                print("liked product \(i): " + likedProducts[i].title!)
+            }
         }
         catch {
             
         }
-        
-        title = "Liked"
     }
 }
