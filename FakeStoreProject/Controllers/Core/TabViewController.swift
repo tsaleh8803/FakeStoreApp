@@ -8,6 +8,8 @@
 import UIKit
 
 final class TabViewController: UITabBarController {
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,17 +17,16 @@ final class TabViewController: UITabBarController {
     }
     
     private func setUpTabBar() {
-        let storyboard = UIStoryboard(name: "ProductsViewController", bundle: nil)
-        let homeProductsVC = storyboard.instantiateViewController(withIdentifier: "ProductsViewController") as? ProductsViewController
         
-        let likedProductsVC = LikedProductsViewController()
+        let homeProductsVC = ProductsUIComposer.make(with: RemoteProductsLoader())
+        let likedProductsVC = ProductsUIComposer.make(with: CoreDataLikedProductsStore(context: context))
         let cartProductsVC = CartViewController()
      
-        homeProductsVC!.navigationItem.largeTitleDisplayMode = .automatic
+        homeProductsVC.navigationItem.largeTitleDisplayMode = .automatic
         likedProductsVC.navigationItem.largeTitleDisplayMode = .automatic
         cartProductsVC.navigationItem.largeTitleDisplayMode = .automatic
         
-        let nav1 = UINavigationController(rootViewController: homeProductsVC!)
+        let nav1 = UINavigationController(rootViewController: homeProductsVC)
         let nav2 = UINavigationController(rootViewController: likedProductsVC)
         let nav3 = UINavigationController(rootViewController: cartProductsVC)
         

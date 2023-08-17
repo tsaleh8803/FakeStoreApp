@@ -37,13 +37,18 @@ class DetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         productDetails(product: product)
-        if (checkerDelegate!.checkIfProductLiked(product: product)) {
-            likedButton.setImage(heartImageFilled, for: .normal)
-            print("product is in core data")
+        do{
+            if try (checkerDelegate!.checkIfProductLiked(product: product)) {
+                likedButton.setImage(heartImageFilled, for: .normal)
+                print("product is in core data")
+            }
+            else {
+                print("product is not in core data")
+            }
+        }catch {
+            
         }
-        else {
-            print("product is not in core data")
-        }
+        
         
     }
 
@@ -69,18 +74,30 @@ class DetailsViewController: UITableViewController {
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
 
-        if (!checkerDelegate!.checkIfProductLiked(product: product)) {
-            product.isLiked = true
-            likedButton.setImage(heartImageFilled, for: .normal)
-            likeDelegate?.addLikedProduct(product: product)
+        do {
+            if try (!checkerDelegate!.checkIfProductLiked(product: product)) {
+                product.isLiked = true
+                likedButton.setImage(heartImageFilled, for: .normal)
+                do {
+                    try likeDelegate?.addLikedProduct(product: product)
+                }
+                catch{
+            
+                }
+            }
+            else {
+                product.isLiked = false
+                likedButton.setImage(heartImage,for: .normal)
+                do {
+                    try deleteDelegate?.deleteProduct(product: product)
+                }
+                catch{
+                    
+                }
+            }
         }
-        else {
-            product.isLiked = false
-            likedButton.setImage(heartImage,for: .normal)
-            deleteDelegate?.deleteProduct(product: product)
-
+        catch {
+            
         }
-        
     }
-    
 }

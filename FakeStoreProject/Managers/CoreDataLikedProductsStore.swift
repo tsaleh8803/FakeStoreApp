@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import CoreData
 
-final class CoreDataLikedProductsStore: LikeProduct, DeleteProduct, FetchProduct {
+final class CoreDataLikedProductsStore: LikeProduct, DeleteProduct, FetchProduct, ProductsLoader {
   
     let context: NSManagedObjectContext
     
@@ -17,54 +17,62 @@ final class CoreDataLikedProductsStore: LikeProduct, DeleteProduct, FetchProduct
         self.context = context
     }
     
-    func checkIfProductLiked(product: Product) -> Bool {
-        let request = LikedProduct.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %@", NSNumber(value: product.id))
+    func checkIfProductLiked(product: Product) throws -> Bool {
         var count = 0
-        do {
+        
+        try context.performAndWait {
+            let request = LikedProduct.fetchRequest()
+            request.predicate = NSPredicate(format: "id == %@", NSNumber(value: product.id))
             count = try context.count(for: request)
         }
-        catch {
-            
-        }
-        if count >= 1 {
-            return true
-        }
-        return false
+        
+        return count > 0
     }
     
-    public func addLikedProduct(product: Product) {
-        if !checkIfProductLiked(product: product) {
+    public func addLikedProduct(product: Product) throws {
+        guard try !checkIfProductLiked(product: product) else {
+            return
+        }
+            
+        try context.performAndWait {
             let newLikedProduct = LikedProduct(context: context)
             newLikedProduct.id = Int32(product.id)
             newLikedProduct.title = product.title
             newLikedProduct.category = product.category
             newLikedProduct.price = product.price
             newLikedProduct.desc = product.description
-            do {
-                try context.save()
-            }
-            catch {
-                
-            }
-        }
-        else {
-            return
-        }
-        
-    }
-    
-    public func deleteProduct(product: Product) {
-        let request = LikedProduct.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %@", NSNumber(value: product.id))
-
-        do {
-            let productToDelete = try context.fetch(request).first
-            productToDelete.map(context.delete)
+            newLikedProduct.image = product.image
+            
             try context.save()
         }
-        catch{
+    }
+    
+    public func deleteProduct(product: Product) throws {
+        try context.performAndWait {
+            let request = LikedProduct.fetchRequest()
+            request.predicate = NSPredicate(format: "id == %@", NSNumber(value: product.id))
             
+            let productToDelete = try context.fetch(request).first
+            productToDelete.map(context.delete)
+            
+            try context.save()
+        }
+    }
+    
+    func fetchProducts(completion: @escaping (Result<[Product], Error>) -> Void) {
+        let context = self.context
+        
+        context.perform {
+            do {
+                let likedProductsFromCore = try context.fetch(LikedProduct.fetchRequest())
+                let likedProducts = likedProductsFromCore.map { product in
+                    Product(id: Int(product.id), title: product.title, price: product.price, description: product.description, category: product.category, image: product.image, rating: nil, isLiked: true)
+                }
+                
+                completion(.success(likedProducts))
+            } catch {
+                completion(.failure(error))
+            }
         }
     }
 }

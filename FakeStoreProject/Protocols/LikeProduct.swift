@@ -9,7 +9,7 @@ import Foundation
 
 protocol LikeProduct {
     
-    func addLikedProduct(product: Product)
+    func addLikedProduct(product: Product) throws
     
 }
 

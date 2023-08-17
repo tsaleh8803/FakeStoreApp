@@ -14,7 +14,7 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
     
     var productList = [Product]()
 
-    var productsLoader: ProductsLoader = RemoteProductsLoader()
+    var productsLoader: ProductsLoader!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,12 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
         tableView.delegate = self
         tableView.dataSource = self
         
+        
+        
+        title = "Products"
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         productsLoader.fetchProducts { result in
             switch result {
             case .success(let products):
@@ -34,8 +40,6 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
             
             }
         }
-        
-        title = "Products"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,7 +49,6 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProductCell
         let product = productList[indexPath.row]
-        
         
         cell.titleLabel.text = product.title
         cell.categoryLabel.text = product.category
@@ -59,14 +62,8 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "DetailsViewController", bundle: nil)
-        let vc = storyboard.instantiateInitialViewController() as! DetailsViewController
-        vc.product = productList[indexPath.row]
-        let store = CoreDataLikedProductsStore(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
-        vc.deleteDelegate = store
-        vc.likeDelegate = store
-        vc.checkerDelegate = store
         tableView.deselectRow(at: indexPath, animated: true)
+        let vc = DetailsViewComposer.createDetailsPage(product: productList[indexPath.row])
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

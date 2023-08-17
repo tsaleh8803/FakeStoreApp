@@ -9,6 +9,6 @@ import Foundation
 
 protocol FetchProduct {
     
-    func checkIfProductLiked(product: Product) -> Bool
+    func checkIfProductLiked(product: Product) throws -> Bool
     
 }

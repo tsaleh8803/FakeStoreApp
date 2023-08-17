@@ -16,7 +16,7 @@ struct Product {
     let description: String
     let category: String
     let image: String
-    let rating: Rating
+    let rating: Rating?
     var isLiked: Bool
 }
 
