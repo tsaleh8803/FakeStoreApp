@@ -11,7 +11,7 @@ struct Cart: Codable {
     let id: Int
     let userId: Int
     let date: String
-    let products: [cartProduct]
+    let products: [CartProduct]
     
 }
 
