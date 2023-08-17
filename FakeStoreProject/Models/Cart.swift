@@ -15,7 +15,7 @@ struct Cart: Codable {
     
 }
 
-struct cartProduct: Codable {
+struct CartProduct: Codable {
     
     let productId: Int
     let quantity: Int

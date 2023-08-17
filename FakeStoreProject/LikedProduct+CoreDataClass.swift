@@ -9,6 +9,8 @@
 import Foundation
 import CoreData
 
+// TODO: Change from `LikedProduct` to `MOLikedProduct`
+
 @objc(LikedProduct)
 public class LikedProduct: NSManagedObject {
 

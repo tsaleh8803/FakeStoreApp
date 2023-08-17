@@ -7,6 +7,7 @@
 
 import Foundation
 
+// TODO: Fix spacing
 protocol FetchProduct {
     
     func checkIfProductLiked(product: Product) throws -> Bool

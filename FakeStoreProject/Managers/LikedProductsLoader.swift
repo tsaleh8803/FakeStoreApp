@@ -12,6 +12,7 @@ protocol LikedProductsRetriever {
     func retrieveLikedProducts() throws -> [Product]
 }
 
+// TODO: Remove this file
 final class LikedProductsLoader: ProductsLoader {
 
     init() {

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// TODO: Fix spacing
 protocol LikeProduct {
     
     func addLikedProduct(product: Product) throws

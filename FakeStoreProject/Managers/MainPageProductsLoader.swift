@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// TODO: Remove this file
 final class MainPageProductsLoader: ProductsLoader {
     
     init() {

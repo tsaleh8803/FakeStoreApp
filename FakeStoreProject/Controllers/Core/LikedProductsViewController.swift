@@ -47,7 +47,9 @@ final class LikedProductsViewController: UIViewController, UICollectionViewDataS
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LikedProductCollectionViewCell.identifier, for: indexPath) as? LikedProductCollectionViewCell else {
             fatalError("Unsupported cell")
         }
+        
         cell.configure(for: likedProducts[indexPath.row])
+        
         return cell
     }
     

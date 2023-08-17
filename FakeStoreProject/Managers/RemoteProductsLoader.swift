@@ -23,8 +23,8 @@ final class RemoteProductsLoader: ProductsLoader {
                         Product(id: remoteProduct.id, title: remoteProduct.title, price: remoteProduct.price, description: remoteProduct.description, category: remoteProduct.category, image: remoteProduct.image, rating: remoteProduct.rating, isLiked: false)
                     }
                     completion(.success(products))
-                }
-                catch {
+                } catch {
+                    // TODO: complete with error
                     print("data could not be decoded: \(error)")
                 }
             }
