@@ -10,14 +10,12 @@ import UIKit
 
 final class MainPageProductsLoader: ProductsLoader {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     init() {
         
     }
     func fetchProducts(completion: @escaping (Result<[Product], Error>) -> Void) {
         do {
-            let likedProducts = try context.fetch(LikedProduct.fetchRequest())
+            
             
         }
         catch {

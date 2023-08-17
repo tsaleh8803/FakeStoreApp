@@ -18,7 +18,6 @@ public class LikedProduct: NSManagedObject {
     @NSManaged public var desc: String
     @NSManaged public var category: String
     @NSManaged public var image: String
-    @NSManaged public var isLiked: Bool
     
     @nonobjc public class func fetchRequest() -> NSFetchRequest<LikedProduct> {
         return NSFetchRequest<LikedProduct>(entityName: "LikedProduct")

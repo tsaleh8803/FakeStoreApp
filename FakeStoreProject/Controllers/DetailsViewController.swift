@@ -16,9 +16,7 @@ class DetailsViewController: UITableViewController {
     var likedProductList = [LikedProduct]()
     
     public var likeDelegate: LikeProduct?
-    
     public var deleteDelegate: DeleteProduct?
-    
     public var checkerDelegate: FetchProduct?
     
     let heartImage = UIImage(systemName: "heart")

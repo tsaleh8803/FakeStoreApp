@@ -15,7 +15,7 @@ enum DetailsViewComposer {
         let vc = storyboard.instantiateInitialViewController() as! DetailsViewController
         vc.product = product
         
-        let store = CoreDataLikedProductsStore(context: (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext)
+        let store = CoreDataLikedProductsStore(context: CoreDataContext.context())
         vc.deleteDelegate = store
         vc.likeDelegate = store
         vc.checkerDelegate = store

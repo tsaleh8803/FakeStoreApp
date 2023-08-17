@@ -8,8 +8,6 @@
 import UIKit
 
 final class TabViewController: UITabBarController {
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +15,7 @@ final class TabViewController: UITabBarController {
     }
     
     private func setUpTabBar() {
+        let context = CoreDataContext.context()
         
         let homeProductsVC = ProductsUIComposer.make(with: RemoteProductsLoader())
         let likedProductsVC = ProductsUIComposer.make(with: CoreDataLikedProductsStore(context: context))

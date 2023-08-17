@@ -33,7 +33,7 @@ final class CoreDataLikedProductsStore: LikeProduct, DeleteProduct, FetchProduct
         guard try !checkIfProductLiked(product: product) else {
             return
         }
-            
+        
         try context.performAndWait {
             let newLikedProduct = LikedProduct(context: context)
             newLikedProduct.id = Int32(product.id)
@@ -42,6 +42,7 @@ final class CoreDataLikedProductsStore: LikeProduct, DeleteProduct, FetchProduct
             newLikedProduct.price = product.price
             newLikedProduct.desc = product.description
             newLikedProduct.image = product.image
+            
             
             try context.save()
         }
