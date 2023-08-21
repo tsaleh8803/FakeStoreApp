@@ -50,7 +50,7 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
         
         cell.titleLabel.text = product.title
         cell.categoryLabel.text = product.category
-        cell.priceLabel.text = String(product.price)
+        cell.priceLabel.text = "$\(String(product.price))"
         cell.productImage.downloaded(from: URL(string: product.image)!)
         if product.isLiked {
             cell.likedLabel.image = UIImage(named:"heart")

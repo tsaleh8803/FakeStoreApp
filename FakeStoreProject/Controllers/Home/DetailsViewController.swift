@@ -49,7 +49,7 @@ class DetailsViewController: UITableViewController {
     private func productDetails(product: Product) {
         titleLabel.text = product.title
         categoryLabel.text = product.category
-        priceLabel.text = String(product.price)
+        priceLabel.text = "$\(String(product.price))"
         descriptionLabel.text = product.description
         productImage.downloaded(from: URL(string: product.image)!)
     }

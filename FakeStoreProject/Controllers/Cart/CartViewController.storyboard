@@ -23,25 +23,51 @@
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="115"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ml1-Jg-PgB">
-                                            <rect key="frame" x="122" y="6" width="115" height="63"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ml1-Jg-PgB">
+                                            <rect key="frame" x="139" y="6" width="124" height="98"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="124" id="Fgi-Db-uEs"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rn6-gY-hDf">
-                                            <rect key="frame" x="301" y="16" width="80" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BTK-9Z-kZD">
+                                            <rect key="frame" x="15" y="0.0" width="80" height="115"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0gq-hp-HJd">
+                                                    <rect key="frame" x="10" y="27.666666666666671" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="7PG-tR-9zf"/>
+                                                        <constraint firstAttribute="width" constant="60" id="yEb-eU-0sA"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="0sb-lb-kev"/>
+                                                <constraint firstItem="0gq-hp-HJd" firstAttribute="centerY" secondItem="BTK-9Z-kZD" secondAttribute="centerY" id="DZu-4i-PZz"/>
+                                                <constraint firstAttribute="height" constant="80" id="EfO-Iw-7s8"/>
+                                                <constraint firstItem="0gq-hp-HJd" firstAttribute="centerX" secondItem="BTK-9Z-kZD" secondAttribute="centerX" id="bAV-Ya-lCS"/>
+                                            </constraints>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rn6-gY-hDf">
+                                            <rect key="frame" x="301" y="6" width="80" height="43"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0gq-hp-HJd">
-                                            <rect key="frame" x="20" y="16" width="80" height="80"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ml1-Jg-PgB" firstAttribute="firstBaseline" secondItem="Rn6-gY-hDf" secondAttribute="firstBaseline" id="1ok-xG-gRD"/>
+                                        <constraint firstItem="ml1-Jg-PgB" firstAttribute="bottom" secondItem="fwg-Cv-r53" secondAttribute="bottomMargin" id="2DK-P8-Bdc"/>
+                                        <constraint firstItem="Rn6-gY-hDf" firstAttribute="leading" secondItem="ml1-Jg-PgB" secondAttribute="trailing" constant="38" id="D4M-yU-o14"/>
+                                        <constraint firstItem="BTK-9Z-kZD" firstAttribute="leading" secondItem="fwg-Cv-r53" secondAttribute="leadingMargin" constant="-5" id="ExW-No-uR9"/>
+                                        <constraint firstItem="ml1-Jg-PgB" firstAttribute="top" secondItem="fwg-Cv-r53" secondAttribute="topMargin" constant="-5" id="Z65-VQ-WeB"/>
+                                        <constraint firstAttribute="bottom" secondItem="BTK-9Z-kZD" secondAttribute="bottom" id="ZuO-ir-PmD"/>
+                                        <constraint firstItem="ml1-Jg-PgB" firstAttribute="leading" secondItem="BTK-9Z-kZD" secondAttribute="trailing" constant="8" symbolic="YES" id="elq-9V-2iq"/>
+                                        <constraint firstItem="BTK-9Z-kZD" firstAttribute="top" secondItem="fwg-Cv-r53" secondAttribute="top" id="zRa-n4-0tY"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="nameLabel" destination="ml1-Jg-PgB" id="e2W-EO-lWf"/>

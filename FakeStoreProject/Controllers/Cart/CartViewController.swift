@@ -32,7 +32,7 @@ final class CartViewController : UITableViewController  {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! CartCell
         let product = cartProducts[indexPath.row]
         cell.nameLabel.text = product.title
-        cell.priceLabel.text = String(product.price)
+        cell.priceLabel.text = "$\(String(product.price))"
         cell.productImageView.downloaded(from: URL(string: product.image)!)
         return cell
     }
@@ -43,6 +43,9 @@ final class CartViewController : UITableViewController  {
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 20
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 
 }

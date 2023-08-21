@@ -94,7 +94,6 @@
 		04D52F432A5FF01E00E3BC03 = {
 			isa = PBXGroup;
 			children = (
-				04D52FF82A8F821500E3BC03 /* MOCartedProduct+CoreDataClass.swift */,
 				04D52F4E2A5FF01E00E3BC03 /* FakeStoreProject */,
 				04D52F4D2A5FF01E00E3BC03 /* Products */,
 			);
@@ -126,7 +125,6 @@
 		04D52F632A5FF0BE00E3BC03 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
-				04D52FE72A8F643B00E3BC03 /* API */,
 				04D52FE62A8F643500E3BC03 /* Domain */,
 				04D52FE52A8F643100E3BC03 /* Cache */,
 			);
@@ -227,16 +225,8 @@
 			children = (
 				04D52FE42A8F63C000E3BC03 /* Domain */,
 				04D52FE32A8F63BB00E3BC03 /* Cache */,
-				04D52FE22A8F63B700E3BC03 /* API */,
 			);
 			path = LikedProducts;
-			sourceTree = "<group>";
-		};
-		04D52FE22A8F63B700E3BC03 /* API */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 		04D52FE32A8F63BB00E3BC03 /* Cache */ = {
@@ -267,17 +257,11 @@
 		04D52FE62A8F643500E3BC03 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				04D52FF82A8F821500E3BC03 /* MOCartedProduct+CoreDataClass.swift */,
 				04D52F7E2A66782800E3BC03 /* CartProduct.swift */,
 				04D52FEE2A8F76DB00E3BC03 /* CartCell.swift */,
 			);
 			path = Domain;
-			sourceTree = "<group>";
-		};
-		04D52FE72A8F643B00E3BC03 /* API */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 		04D52FE82A8F645200E3BC03 /* Home */ = {
