@@ -1,16 +1,10 @@
-//
-//  DetailViewComposer.swift
-//  FakeStoreProject
-//
-//  Created by Mac on 17/08/2023.
-//
 
 import Foundation
 import UIKit
 
 enum DetailsViewComposer {
     
-    public static func createDetailsPage(product: Product) -> DetailsViewController {
+    public static func createDetailsPage(product: Product) -> UIViewController {
         let storyboard = UIStoryboard(name: "DetailsViewController", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as! DetailsViewController
         vc.product = product

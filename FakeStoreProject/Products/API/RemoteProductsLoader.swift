@@ -1,9 +1,3 @@
-//
-//  APIService.swift
-//  FakeStoreProject
-//
-//  Created by Mac on 13/07/2023.
-//
 
 import Foundation
 
@@ -13,9 +7,7 @@ final class RemoteProductsLoader: ProductsLoader {
     
     func fetchProducts(completion: @escaping (Result<[Product],Error>) -> Void) {
         ///API call that decodes the JSON data into the Product struct
-        
         URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in
-            
             if error == nil {
                 do {
                     let results = try JSONDecoder().decode([RemoteProduct].self, from: data!)
@@ -24,8 +16,7 @@ final class RemoteProductsLoader: ProductsLoader {
                     }
                     completion(.success(products))
                 } catch {
-                    // TODO: complete with error
-                    print("data could not be decoded: \(error)")
+                    completion(.failure(error))
                 }
             }
             

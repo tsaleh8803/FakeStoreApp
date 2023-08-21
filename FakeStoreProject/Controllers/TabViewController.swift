@@ -1,9 +1,3 @@
-//
-//  TabViewController.swift
-//  FakeStoreProject
-//
-//  Created by Mac on 20/07/2023.
-//
 
 import UIKit
 
@@ -19,7 +13,10 @@ final class TabViewController: UITabBarController {
         
         let homeProductsVC = ProductsUIComposer.make(with: RemoteProductsLoader())
         let likedProductsVC = ProductsUIComposer.make(with: CoreDataLikedProductsStore(context: context))
-        let cartProductsVC = CartViewController()
+        let cartProductsVC = CartViewComposer.createCartPage(with: CoreDataCartedProductsStore(context: context))
+        
+        homeProductsVC.title = "Products"
+        likedProductsVC.title = "Liked"
      
         homeProductsVC.navigationItem.largeTitleDisplayMode = .automatic
         likedProductsVC.navigationItem.largeTitleDisplayMode = .automatic

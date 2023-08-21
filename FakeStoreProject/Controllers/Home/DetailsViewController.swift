@@ -13,16 +13,15 @@ class DetailsViewController: UITableViewController {
 
     var product: Product!
     
-    var likedProductList = [LikedProduct]()
+    var likedProductList = [MOLikedProduct]()
     
-    public var likeDelegate: LikeProduct?
+    public var likeDelegate: AddProduct?
     public var deleteDelegate: DeleteProduct?
-    public var checkerDelegate: FetchProduct?
+    public var checkerDelegate: CheckProduct?
     
     let heartImage = UIImage(systemName: "heart")
     let heartImageFilled = UIImage(systemName: "heart.fill")
 
-    
     @IBOutlet weak var productImage: UIImageView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -36,13 +35,10 @@ class DetailsViewController: UITableViewController {
         super.viewDidLoad()
         productDetails(product: product)
         do{
-            if try (checkerDelegate!.checkIfProductLiked(product: product)) {
+            if try (checkerDelegate!.checkForProduct(product: product)) {
                 likedButton.setImage(heartImageFilled, for: .normal)
-                print("product is in core data")
             }
-            else {
-                print("product is not in core data")
-            }
+
         }catch {
             
         }
@@ -73,11 +69,11 @@ class DetailsViewController: UITableViewController {
     @IBAction func likeButtonPressed(_ sender: UIButton) {
 
         do {
-            if try (!checkerDelegate!.checkIfProductLiked(product: product)) {
+            if try (!checkerDelegate!.checkForProduct(product: product)) {
                 product.isLiked = true
                 likedButton.setImage(heartImageFilled, for: .normal)
                 do {
-                    try likeDelegate?.addLikedProduct(product: product)
+                    try likeDelegate?.addProduct(product: product)
                 }
                 catch{
             

@@ -1,9 +1,3 @@
-//
-//  LikedProductsViewController.swift
-//  FakeStoreProject
-//
-//  Created by Mac on 20/07/2023.
-//
 
 import UIKit
 import CoreData
@@ -27,18 +21,14 @@ final class LikedProductsViewController: UIViewController, UICollectionViewDataS
         view.addSubview(collectionView)
         likedProductsLoader.fetchProducts { result in
             switch result {
-            case .success(let success):
-                self.likedProducts = success
+            case .success(let products):
+                self.likedProducts = products
             case .failure(let failure):
                 print(String(describing: failure))
             }
         }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-      
-    }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         likedProducts.count
     }
@@ -47,7 +37,6 @@ final class LikedProductsViewController: UIViewController, UICollectionViewDataS
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LikedProductCollectionViewCell.identifier, for: indexPath) as? LikedProductCollectionViewCell else {
             fatalError("Unsupported cell")
         }
-        
         cell.configure(for: likedProducts[indexPath.row])
         
         return cell
@@ -58,5 +47,4 @@ final class LikedProductsViewController: UIViewController, UICollectionViewDataS
         let width = (bounds.width-30)/2
         return CGSize(width: width, height: width*1.5)
     }
-    
 }

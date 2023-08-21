@@ -51,13 +51,16 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fNn-RA-eFW">
                                                     <rect key="frame" x="328" y="123" width="55" height="35"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="buy">
+                                                    <buttonConfiguration key="configuration" style="plain" title="add">
                                                         <backgroundConfiguration key="background">
                                                             <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                         </backgroundConfiguration>
                                                         <fontDescription key="titleFontDescription" type="boldSystem" pointSize="17"/>
                                                         <color key="baseForegroundColor" systemColor="systemGray6Color"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="addToCart:" destination="Xzt-S3-6cJ" eventType="touchUpInside" id="J0J-Vj-G9f"/>
+                                                    </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="quE-Er-McZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="192" height="198"/>
@@ -82,6 +85,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addButton" destination="fNn-RA-eFW" id="AIs-XE-Rgt"/>
                                             <outlet property="categoryLabel" destination="1mc-DO-9F9" id="cd3-rR-7aU"/>
                                             <outlet property="likedLabel" destination="zqE-LS-zxO" id="Hm1-KV-7NG"/>
                                             <outlet property="priceLabel" destination="kaS-JA-paW" id="evZ-zx-d47"/>
