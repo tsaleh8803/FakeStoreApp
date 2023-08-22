@@ -3,7 +3,7 @@ import Foundation
 import UIKit
 import CoreData
 
-final class CoreDataLikedProductsStore: AddProduct, DeleteProduct, CheckProduct, ProductsLoader {
+final class CoreDataLikedProductsStore: ProductLiker, DeleteProduct, CheckProduct, ProductsLoader {
   
     let context: NSManagedObjectContext
     
@@ -24,7 +24,7 @@ final class CoreDataLikedProductsStore: AddProduct, DeleteProduct, CheckProduct,
         return count > 0
     }
     
-    public func addProduct(product: Product) throws {
+    public func likeProduct(product: Product) throws {
         guard try !checkForProduct(product: product) else {
             return
         }

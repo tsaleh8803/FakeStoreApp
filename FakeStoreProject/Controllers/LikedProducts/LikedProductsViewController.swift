@@ -2,6 +2,8 @@
 import UIKit
 import CoreData
 
+//MARK: - Collection View Alternative for Liked View Page
+//(Currently not used)
 final class LikedProductsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     let collectionView: UICollectionView!

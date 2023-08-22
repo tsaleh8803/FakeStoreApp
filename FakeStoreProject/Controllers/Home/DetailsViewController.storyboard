@@ -77,6 +77,15 @@
                                                                         <action selector="likeButtonPressed:" destination="94y-bI-4gb" eventType="touchUpInside" id="nWH-DK-km6"/>
                                                                     </connections>
                                                                 </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdo-Gq-k4i" userLabel="Add">
+                                                                    <rect key="frame" x="221" y="7" width="55" height="35"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="tinted" title="Add"/>
+                                                                    <connections>
+                                                                        <action selector="addButtonPressed:" destination="94y-bI-4gb" eventType="touchUpInside" id="eHd-TO-Spu"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                             <constraints>
@@ -91,14 +100,15 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6h-S0-LcA">
-                                                            <rect key="frame" x="0.0" y="102.66666666666667" width="353" height="0.0"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6h-S0-LcA">
+                                                            <rect key="frame" x="0.0" y="102.66666666666667" width="353" height="182.66666666666663"/>
+                                                            <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed placerat mauris, eget semper orci. Maecenas ut ligula fringilla, volutpat elit non, rutrum nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yki-Ty-Uah">
-                                                            <rect key="frame" x="0.0" y="106.66666666666669" width="353" height="245.33333333333331"/>
+                                                            <rect key="frame" x="0.0" y="289.33333333333331" width="353" height="62.666666666666686"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                     </subviews>
@@ -121,6 +131,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="addButton" destination="Vdo-Gq-k4i" id="IbI-7m-E9I"/>
                         <outlet property="categoryLabel" destination="UeB-Z1-YF8" id="fjw-hn-cIR"/>
                         <outlet property="descriptionLabel" destination="x6h-S0-LcA" id="nop-4S-bFB"/>
                         <outlet property="likedButton" destination="Pyr-Ow-NIv" id="kYf-u7-10A"/>

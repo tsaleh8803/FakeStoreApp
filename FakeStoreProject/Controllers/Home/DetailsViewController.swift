@@ -15,7 +15,8 @@ class DetailsViewController: UITableViewController {
     
     var likedProductList = [MOLikedProduct]()
     
-    public var likeDelegate: AddProduct?
+    public var cartDelegate: ProductToCartAdder?
+    public var likeDelegate: ProductLiker?
     public var deleteDelegate: DeleteProduct?
     public var checkerDelegate: CheckProduct?
     
@@ -30,6 +31,7 @@ class DetailsViewController: UITableViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var likedButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +40,10 @@ class DetailsViewController: UITableViewController {
             if try (checkerDelegate!.checkForProduct(product: product)) {
                 likedButton.setImage(heartImageFilled, for: .normal)
             }
-
-        }catch {
+        }
+        catch {
             
         }
-        
-        
     }
 
     private func productDetails(product: Product) {
@@ -73,7 +73,7 @@ class DetailsViewController: UITableViewController {
                 product.isLiked = true
                 likedButton.setImage(heartImageFilled, for: .normal)
                 do {
-                    try likeDelegate?.addProduct(product: product)
+                    try likeDelegate?.likeProduct(product: product)
                 }
                 catch{
             
@@ -93,5 +93,9 @@ class DetailsViewController: UITableViewController {
         catch {
             
         }
+    }
+    
+    @IBAction func addButtonPressed(_ sender: Any ) {
+        
     }
 }

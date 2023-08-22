@@ -22,5 +22,6 @@ public class MOCartProduct: NSManagedObject {
     @NSManaged public var category: String
     @NSManaged public var desc: String
     @NSManaged public var id: Int32
+    @NSManaged public var quantity: Int32
 
 }

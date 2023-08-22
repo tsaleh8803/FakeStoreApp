@@ -6,6 +6,7 @@ final class CartViewController : UITableViewController  {
     var cartProducts = [CartProduct]()
     
     var cartProductsLoader: CartProductsLoader!
+    var QuantityChangerDelegate: CartCellDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +32,38 @@ final class CartViewController : UITableViewController  {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell",for: indexPath) as! CartCell
         let product = cartProducts[indexPath.row]
+                
         cell.nameLabel.text = product.title
         cell.priceLabel.text = "$\(String(product.price))"
         cell.productImageView.downloaded(from: URL(string: product.image)!)
+        cell.quantityLabel.text = String(product.quantity)
+        
+        cell.onIncreaseQuantity = {
+            print("increase for \(product.title)")
+            self.QuantityChangerDelegate?.addQuantity(product: product, completion: { result in
+                switch result {
+                case .success(let cartProduct):
+                    self.cartProducts[indexPath.row] = cartProduct
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                case .failure(let failure):
+                    print(String(describing: failure))
+                }
+            })
+        }
+        
+        cell.onDecreaseQuantity = {
+            print("decrease for \(product.title)")
+            self.QuantityChangerDelegate?.minusQuantity(product: product, completion: { result in
+                switch result {
+                case .success(let cartProduct):
+                    self.cartProducts[indexPath.row] = cartProduct
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                case .failure(let failure):
+                    print(String(describing: failure))
+                }
+            })
+        }
+        
         return cell
     }
     

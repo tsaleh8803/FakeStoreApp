@@ -6,9 +6,10 @@ enum ProductsUIComposer {
     
     public static func make(with loader: ProductsLoader) -> UIViewController {
         let storyboard = UIStoryboard(name: "ProductsViewController", bundle: nil)
-        let homeProductsVC = storyboard.instantiateViewController(withIdentifier: "ProductsViewController") as! ProductsViewController
-        homeProductsVC.productsLoader = loader
+        let vc = storyboard.instantiateViewController(withIdentifier: "ProductsViewController") as! ProductsViewController
+        vc.productsLoader = loader
+        vc.checkerDelegate = CoreDataLikedProductsStore(context: CoreDataContext.context())
         
-        return homeProductsVC
+        return vc
     }
 }

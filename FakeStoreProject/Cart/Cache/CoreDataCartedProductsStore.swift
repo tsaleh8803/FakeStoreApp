@@ -3,7 +3,7 @@ import Foundation
 import UIKit
 import CoreData
 
-final class CoreDataCartedProductsStore: AddProduct, DeleteProduct, CheckProduct, CartProductsLoader, ProductCellDelegate {
+final class CoreDataCartedProductsStore: CartProductsLoader, ProductToCartAdder, CartCellDelegate {
   
     let context: NSManagedObjectContext
 
@@ -11,74 +11,84 @@ final class CoreDataCartedProductsStore: AddProduct, DeleteProduct, CheckProduct
         self.context = context
     }
     
-    func checkForProduct(product: Product) throws -> Bool {
-        var count = 0
-        
-        try context.performAndWait {
-            let request = MOCartProduct.fetchRequest()
-            request.predicate = NSPredicate(format: "id == %@", NSNumber(value: product.id))
-            count = try context.count(for: request)
-        }
-        return count > 0
-    }
-    
-    public func addProduct(product: Product) throws {
-        
-        guard try !checkForProduct(product: product) else {
-            return
-        }
-        
-        try context.performAndWait {
-            let newCartProduct = MOCartProduct(context: context)
-            newCartProduct.id = Int32(product.id)
-            newCartProduct.title = product.title
-            newCartProduct.category = product.category
-            newCartProduct.price = product.price
-            newCartProduct.desc = product.description
-            newCartProduct.image = product.image
-            try context.save()
-        }
-    }
-    
-    public func deleteProduct(product: Product) throws {
-        try context.performAndWait {
-            let request = MOCartProduct.fetchRequest()
-            request.predicate = NSPredicate(format: "id == %@", NSNumber(value: product.id))
-            
-            let productToDelete = try context.fetch(request).first
-            productToDelete.map(context.delete)
-            
-            try context.save()
-        }
-    }
-    
     func fetchCartProducts(completion: @escaping (Result<[CartProduct], Error>) -> Void) {
         let context = self.context
         
         context.perform {
-            do {
-                let cartedProductsFromCore = try context.fetch(MOCartProduct.fetchRequest())
-                let cartedProducts = cartedProductsFromCore.map { product in
-                    CartProduct(id: Int(product.id), title: product.title, price: product.price, description: product.description, category: product.category, image: product.image, rating: nil, isLiked: true, quantity: 1)
-                }
-                
-                completion(.success(cartedProducts))
-            } catch {
-                completion(.failure(error))
-            }
+            completion(Result {
+                try context
+                    .fetch(MOCartProduct.fetchRequest())
+                    .map { $0.toCartProduct() }
+            })
         }
     }
     
-    func addProductToCart(productCell: ProductCell, product: Product) {
-        
-        
-        do {
-            try self.addProduct(product: product)
-            print("added product to cart!")
+    func addProductToCart(product: Product, completion: @escaping (Result<CartProduct,Error>) -> Void) {
+        let context = self.context
+        context.perform {
+            completion(Result {
+                let request = MOCartProduct.fetchRequest()
+                request.predicate = NSPredicate(format: "id == %@", NSNumber(value: product.id))
+                let managedCartProduct = try context.fetch(request).first
+                
+                if let managedCartProduct {
+                    managedCartProduct.quantity += 1
+                    try context.save()
+                                        
+                    return managedCartProduct.toCartProduct()
+                }
+                
+                let newCartProduct = MOCartProduct(context: context)
+                newCartProduct.fill(with: product)
+                try context.save()
+                
+                return newCartProduct.toCartProduct()
+            })
         }
-        catch {
-            
+    }
+    
+    func addQuantity(product: CartProduct, completion: @escaping (Result<CartProduct,Error>) -> Void) {
+        let productNew = Product(cartProduct: product)
+        addProductToCart(product: productNew, completion: completion)
+    }
+
+    func minusQuantity(product: CartProduct, completion: @escaping (Result<CartProduct,Error>) -> Void) {
+        let context = self.context
+        context.perform {
+            completion(Result {
+                let request = MOCartProduct.fetchRequest()
+                request.predicate = NSPredicate(format: "id == %@", NSNumber(value: product.id))
+                
+                guard let managedCartProduct = try context.fetch(request).first else {
+                    throw ProductDoesNotExists()
+                }
+                
+                managedCartProduct.quantity -= 1
+                try context.save()
+                
+                return managedCartProduct.toCartProduct()
+            })
         }
+    }
+    
+}
+
+struct ProductDoesNotExists: Error {}
+
+extension MOCartProduct {
+    func fill(with product: Product) {
+        id = Int32(product.id)
+        title = product.title
+        category = product.category
+        price = product.price
+        desc = product.description
+        image = product.image
+    }
+}
+
+extension MOCartProduct {
+    func toCartProduct() -> CartProduct {
+        CartProduct(id: Int(id), title: title, price: price, description: description, category: category, image: image, rating: nil, isLiked: true, quantity: Int(quantity))
     }
     
 }

@@ -9,11 +9,11 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
     
     var productList = [Product]()
     
+    public var checkerDelegate: CheckProduct?
+    
     var productsLoader: ProductsLoader!
     
     //var loadProducts: (() -> ((Result<[Product], Error>) -> Void))?
-
-    var cart: CoreDataCartedProductsStore?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,16 +44,19 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProductCell
         let product = productList[indexPath.row]
-        
-        cell.product = product
-        cell.delegate = CoreDataCartedProductsStore(context: CoreDataContext.context())
-        
         cell.titleLabel.text = product.title
         cell.categoryLabel.text = product.category
         cell.priceLabel.text = "$\(String(product.price))"
-        cell.productImage.downloaded(from: URL(string: product.image)!)
-        if product.isLiked {
-            cell.likedLabel.image = UIImage(named:"heart")
+        if let url = URL(string: product.image) {
+            cell.productImage.downloaded(from: url )
+        }
+        do{
+            if try (checkerDelegate!.checkForProduct(product: product)) {
+                cell.likedLabel.image = UIImage(systemName: "heart.fill")
+            }
+        }
+        catch {
+            
         }
 
         return cell
