@@ -9,7 +9,7 @@ import UIKit
 import CoreData
 
 
-class DetailsViewController: UITableViewController {
+class DetailsViewController: UIViewController {
 
     var product: Product!
     
@@ -58,28 +58,7 @@ class DetailsViewController: UITableViewController {
         productImage.downloaded(from: URL(string: product.image)!)
         quantityLabel.text = String(defaultQuantityForCart)
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .blue
-        view.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        return view
-    }
-    
+
     @IBAction func quantityIncreaseButtonPressed(_ sender: Any) {
         defaultQuantityForCart += 1
         quantityLabel.text = String(defaultQuantityForCart)
