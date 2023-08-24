@@ -3,8 +3,8 @@ import Foundation
 import UIKit
 import CoreData
 
-final class CoreDataCartedProductsStore: CartProductsLoader, ProductToCartAdder, CartCellDelegate, CartTotalDelegate {
-  
+final class CoreDataCartedProductsStore: CartProductsLoader, ProductToCartAdder, CartCellDelegate, CartTotalDelegate, CartProductQuantityDecreaser, CartProductRemover {
+
     let context: NSManagedObjectContext
 
     init(context: NSManagedObjectContext) {
@@ -22,7 +22,7 @@ final class CoreDataCartedProductsStore: CartProductsLoader, ProductToCartAdder,
             })
         }
     }
-    //TODO: - When adding product to cart from details page, total price is not updated until going back to cart page
+
     func addProductToCart(product: Product, quantity: Int, completion: @escaping (Result<CartProduct,Error>) -> Void) {
         let context = self.context
         context.perform {
@@ -52,41 +52,45 @@ final class CoreDataCartedProductsStore: CartProductsLoader, ProductToCartAdder,
         let productNew = Product(cartProduct: product)
         addProductToCart(product: productNew,quantity: 1,completion: completion)
     }
-
-    func minusQuantity(product: CartProduct, completion: @escaping (Result<CartProduct,Error>) -> Void) {
-        let context = self.context
-        context.perform {
-            completion(Result {
+    
+    func removeProduct(product: CartProduct, completion: @escaping (Error?) -> Void) {
+        do {
+            try context.performAndWait {
+                let context = self.context
                 let request = MOCartProduct.fetchRequest()
                 request.predicate = NSPredicate(format: "id == %@", NSNumber(value: product.id))
                 
-                guard let managedCartProduct = try context.fetch(request).first else {
-                    throw ProductDoesNotExists()
-                }
-                if managedCartProduct.quantity > 1 {
-                    managedCartProduct.quantity -= 1
-                }
+                let productToDelete = try context.fetch(request).first
+                productToDelete.map(context.delete)
                 
                 try context.save()
-                
-                return managedCartProduct.toCartProduct()
-            })
+                completion(.none)
+            }
+        } catch {
+            completion(error)
         }
     }
     
-    func removeProduct(product: CartProduct) throws {
-        
-        try context.performAndWait {
-            let context = self.context
-            let request = MOCartProduct.fetchRequest()
-            request.predicate = NSPredicate(format: "id == %@", NSNumber(value: product.id))
+    func decreaseQuantity(product: CartProduct, completion: (Result<CartProduct,Error>) -> Void) {
+        let request = MOCartProduct.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", NSNumber(value: product.id))
+        do {
+            guard let managedCartProduct = try context.fetch(request).first else {
+                return completion(.failure(ProductDoesNotExist()))
+            }
             
-            let productToDelete = try context.fetch(request).first
-            productToDelete.map(context.delete)
-            
+            if managedCartProduct.quantity > 1 {
+                managedCartProduct.quantity -= 1
+            }
             try context.save()
+            completion(.success(managedCartProduct.toCartProduct()))
         }
+        catch {
+            
+        }
+        
     }
+  
     
     func calculateTotal(cartProducts: [CartProduct]) -> Double {
         var total = 0.0
@@ -94,12 +98,14 @@ final class CoreDataCartedProductsStore: CartProductsLoader, ProductToCartAdder,
             total += (product.price * Double(product.quantity))
         }
         
-        return Double(total)
+        return Double(round(total * 100) / 100.0)
     }
     
 }
 
-struct ProductDoesNotExists: Error {}
+struct ProductDoesNotExist: Error {
+    
+}
 
 extension MOCartProduct {
     func fill(with product: Product) {
@@ -119,3 +125,9 @@ extension MOCartProduct {
     }
     
 }
+//
+//extension MOCartProduct {
+//    static func find(by id: String) -> MOCartProduct? {
+//        
+//    }
+//}

@@ -16,10 +16,15 @@ class CartCell: UITableViewCell {
     
     @IBAction func increaseQuantity(_ sender: Any) {
         onIncreaseQuantity?()
-        
     }
     
     @IBAction func decreaseQuantity(_ sender: Any) {
         onDecreaseQuantity?()
+    }
+    
+    override func prepareForReuse() {
+        minusButton.titleLabel?.text = nil
+        minusButton.setImage(nil, for: .normal)
+        plusButton.setImage(UIImage(systemName: "plus"), for: .normal)
     }
 }

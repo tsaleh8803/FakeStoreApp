@@ -8,8 +8,13 @@ enum CartViewComposer {
         let storyboard = UIStoryboard(name: "CartViewController", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "CartViewController") as! CartViewController
         vc.cartProductsLoader = loader
-        vc.quantityChangerDelegate = CoreDataCartedProductsStore(context: CoreDataContext.context())
-        vc.totalDelegate = CoreDataCartedProductsStore(context: CoreDataContext.context())
+        
+        let store = CoreDataCartedProductsStore(context: CoreDataContext.context())
+        let handler = CartProductDecreaserHandler(decreaser: store, remover: store)
+        
+        vc.quantityDecreaseHandler = handler
+        vc.quantityIncreaseHandler = store
+        vc.totalDelegate = store
         return vc
     }
 }

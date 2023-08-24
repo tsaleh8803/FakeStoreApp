@@ -71,6 +71,15 @@ class DetailsViewController: UITableViewController {
         return 0
     }
     
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .blue
+        view.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        return view
+    }
+    
     @IBAction func quantityIncreaseButtonPressed(_ sender: Any) {
         defaultQuantityForCart += 1
         quantityLabel.text = String(defaultQuantityForCart)
