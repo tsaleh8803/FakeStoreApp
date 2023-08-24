@@ -50,6 +50,7 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
         if let url = URL(string: product.image) {
             cell.productImage.downloaded(from: url )
         }
+        cell.likedLabel.image = nil
         do{
             if try (checkerDelegate!.checkForProduct(product: product)) {
                 cell.likedLabel.image = UIImage(systemName: "heart.fill")

@@ -15,6 +15,8 @@ class DetailsViewController: UITableViewController {
     
     var likedProductList = [MOLikedProduct]()
     
+    var defaultQuantityForCart = 1
+    
     public var cartDelegate: ProductToCartAdder?
     public var likeDelegate: ProductLiker?
     public var deleteDelegate: DeleteProduct?
@@ -29,9 +31,11 @@ class DetailsViewController: UITableViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var likedButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var increaseQuantityButton: UIButton!
+    @IBOutlet weak var decreaseQuantityButton: UIButton!
+    @IBOutlet weak var quantityLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +56,7 @@ class DetailsViewController: UITableViewController {
         priceLabel.text = "$\(String(product.price))"
         descriptionLabel.text = product.description
         productImage.downloaded(from: URL(string: product.image)!)
+        quantityLabel.text = String(defaultQuantityForCart)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -64,6 +69,19 @@ class DetailsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
+    }
+    
+    @IBAction func quantityIncreaseButtonPressed(_ sender: Any) {
+        defaultQuantityForCart += 1
+        quantityLabel.text = String(defaultQuantityForCart)
+    }
+    
+    @IBAction func quantityDecreaseButtonPressed(_ sender: Any) {
+        if defaultQuantityForCart > 1 {
+            defaultQuantityForCart -= 1
+            quantityLabel.text = String(defaultQuantityForCart)
+        }
+        
     }
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
@@ -96,6 +114,13 @@ class DetailsViewController: UITableViewController {
     }
     
     @IBAction func addButtonPressed(_ sender: Any ) {
-        
+        cartDelegate?.addProductToCart(product: product,quantity: defaultQuantityForCart, completion: { result in
+            switch result {
+            case .success(_):
+                print("")
+            case .failure(_):
+                print("")
+            }
+        })
     }
 }

@@ -9,12 +9,13 @@ enum DetailsViewComposer {
         let vc = storyboard.instantiateInitialViewController() as! DetailsViewController
         vc.product = product
         
-        let store = CoreDataLikedProductsStore(context: CoreDataContext.context())
-        let cart = CoreDataCartedProductsStore(context: CoreDataContext.context())
-        vc.cartDelegate = cart
-        vc.deleteDelegate = store
-        vc.likeDelegate = store
-        vc.checkerDelegate = store
+        let likedStore = CoreDataLikedProductsStore(context: CoreDataContext.context())
+        let cartStore = CoreDataCartedProductsStore(context: CoreDataContext.context())
+        
+        vc.cartDelegate = cartStore
+        vc.deleteDelegate = likedStore
+        vc.likeDelegate = likedStore
+        vc.checkerDelegate = likedStore
         
         return vc
     }

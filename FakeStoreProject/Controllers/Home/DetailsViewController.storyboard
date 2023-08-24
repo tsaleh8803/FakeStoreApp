@@ -72,18 +72,11 @@
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pyr-Ow-NIv">
                                                                     <rect key="frame" x="302.33333333333331" y="8" width="50.666666666666686" height="34.333333333333336"/>
                                                                     <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="filled" image="heart" catalog="system"/>
+                                                                    <buttonConfiguration key="configuration" style="filled" image="heart" catalog="system">
+                                                                        <color key="baseBackgroundColor" systemColor="systemPinkColor"/>
+                                                                    </buttonConfiguration>
                                                                     <connections>
                                                                         <action selector="likeButtonPressed:" destination="94y-bI-4gb" eventType="touchUpInside" id="nWH-DK-km6"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdo-Gq-k4i" userLabel="Add">
-                                                                    <rect key="frame" x="221" y="7" width="55" height="35"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                    <state key="normal" title="Button"/>
-                                                                    <buttonConfiguration key="configuration" style="tinted" title="Add"/>
-                                                                    <connections>
-                                                                        <action selector="addButtonPressed:" destination="94y-bI-4gb" eventType="touchUpInside" id="eHd-TO-Spu"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -109,7 +102,60 @@
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yki-Ty-Uah">
                                                             <rect key="frame" x="0.0" y="289.33333333333331" width="353" height="62.666666666666686"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdo-Gq-k4i" userLabel="Add">
+                                                                    <rect key="frame" x="211.66666666666663" y="18.333333333333375" width="123" height="34.333333333333343"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="123" id="KUP-Ll-oKT"/>
+                                                                    </constraints>
+                                                                    <state key="normal" title="Button"/>
+                                                                    <buttonConfiguration key="configuration" style="tinted" title=" Add to Cart">
+                                                                        <color key="baseForegroundColor" systemColor="systemGray6Color"/>
+                                                                    </buttonConfiguration>
+                                                                    <connections>
+                                                                        <action selector="addButtonPressed:" destination="94y-bI-4gb" eventType="touchUpInside" id="eHd-TO-Spu"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHo-lf-QBb">
+                                                                    <rect key="frame" x="38.000000000000007" y="10" width="73.666666666666686" height="42.666666666666664"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K8d-nS-a1B">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="31.666666666666668" height="42.666666666666664"/>
+                                                                            <state key="normal" title="Button"/>
+                                                                            <buttonConfiguration key="configuration" style="plain" title="-">
+                                                                                <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                                                            </buttonConfiguration>
+                                                                            <connections>
+                                                                                <action selector="quantityDecreaseButtonPressed:" destination="94y-bI-4gb" eventType="touchUpInside" id="PSw-KH-Kbs"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6D6-77-l6t">
+                                                                            <rect key="frame" x="31.666666666666675" y="0.0" width="7.6666666666666679" height="42.666666666666664"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OV6-ir-ZIB" userLabel="+">
+                                                                            <rect key="frame" x="39.333333333333329" y="0.0" width="34.333333333333329" height="42.666666666666664"/>
+                                                                            <state key="normal" title="Button"/>
+                                                                            <buttonConfiguration key="configuration" style="plain" title="+">
+                                                                                <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                                                            </buttonConfiguration>
+                                                                            <connections>
+                                                                                <action selector="quantityIncreaseButtonPressed:" destination="94y-bI-4gb" eventType="touchUpInside" id="sdT-At-fZ8"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" systemColor="systemRedColor"/>
+                                                            <constraints>
+                                                                <constraint firstItem="sHo-lf-QBb" firstAttribute="top" secondItem="Yki-Ty-Uah" secondAttribute="top" constant="10" id="7D4-vl-NPZ"/>
+                                                                <constraint firstItem="Vdo-Gq-k4i" firstAttribute="leading" secondItem="sHo-lf-QBb" secondAttribute="trailing" constant="100" id="GBx-Sj-PBk"/>
+                                                                <constraint firstItem="sHo-lf-QBb" firstAttribute="leading" secondItem="Yki-Ty-Uah" secondAttribute="leadingMargin" constant="30" id="LFO-hC-Ddk"/>
+                                                                <constraint firstAttribute="bottom" secondItem="sHo-lf-QBb" secondAttribute="bottom" constant="10" id="bYK-Q9-15N"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Vdo-Gq-k4i" secondAttribute="bottom" constant="10" id="e9d-jl-fLj"/>
+                                                            </constraints>
                                                         </view>
                                                     </subviews>
                                                 </stackView>
@@ -133,10 +179,13 @@
                     <connections>
                         <outlet property="addButton" destination="Vdo-Gq-k4i" id="IbI-7m-E9I"/>
                         <outlet property="categoryLabel" destination="UeB-Z1-YF8" id="fjw-hn-cIR"/>
+                        <outlet property="decreaseQuantityButton" destination="K8d-nS-a1B" id="CYX-QX-1jH"/>
                         <outlet property="descriptionLabel" destination="x6h-S0-LcA" id="nop-4S-bFB"/>
+                        <outlet property="increaseQuantityButton" destination="OV6-ir-ZIB" id="hoL-72-1mn"/>
                         <outlet property="likedButton" destination="Pyr-Ow-NIv" id="kYf-u7-10A"/>
                         <outlet property="priceLabel" destination="IsF-JQ-nXD" id="yf6-ap-s6L"/>
                         <outlet property="productImage" destination="qJw-fq-efZ" id="m4G-qL-uW7"/>
+                        <outlet property="quantityLabel" destination="6D6-77-l6t" id="Wsr-Nl-wgB"/>
                         <outlet property="titleLabel" destination="Sx2-gJ-PTE" id="RvM-QH-ako"/>
                     </connections>
                 </tableViewController>
@@ -149,6 +198,15 @@
         <image name="heart" catalog="system" width="128" height="107"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

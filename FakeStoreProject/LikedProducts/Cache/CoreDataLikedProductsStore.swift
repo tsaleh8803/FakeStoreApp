@@ -61,7 +61,7 @@ final class CoreDataLikedProductsStore: ProductLiker, DeleteProduct, CheckProduc
             do {
                 let likedProductsFromCore = try context.fetch(MOLikedProduct.fetchRequest())
                 let likedProducts = likedProductsFromCore.map { product in
-                    Product(id: Int(product.id), title: product.title, price: product.price, description: product.description, category: product.category, image: product.image, rating: nil, isLiked: true)
+                    Product(id: Int(product.id), title: product.title, price: product.price, description: product.desc, category: product.category, image: product.image, rating: nil, isLiked: true)
                 }
                 
                 completion(.success(likedProducts))

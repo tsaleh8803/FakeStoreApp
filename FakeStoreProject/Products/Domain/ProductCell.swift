@@ -19,6 +19,6 @@ class ProductCell: UITableViewCell {
         super.prepareForReuse()
         
         productImage.image = nil
-        likedLabel.image = UIImage(systemName: "heart")
+        likedLabel.image = nil
     }
 }

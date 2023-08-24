@@ -37,4 +37,11 @@ final class TabViewController: UITabBarController {
         setViewControllers([nav1,nav2,nav3], animated: true)
     }
 
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if self.selectedIndex == 0 {
+            let rootView = self.viewControllers![self.selectedIndex] as! UINavigationController
+            rootView.popToRootViewController(animated: false)
+        }
+    }
+
 }
