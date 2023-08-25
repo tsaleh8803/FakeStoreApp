@@ -100,6 +100,7 @@ class DetailsViewController: UIViewController {
             
         }
     }
+
     
     @IBAction func addButtonPressed(_ sender: Any ) {
         cartDelegate?.addProductToCart(product: product,quantity: defaultQuantityForCart, completion: { result in

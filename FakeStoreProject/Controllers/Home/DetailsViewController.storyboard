@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jsp-GH-j8J">
+                            <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jsp-GH-j8J">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iex-hh-y5V">
@@ -46,7 +46,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="Z4V-OT-AU3">
                                                         <rect key="frame" x="0.0" y="350" width="393" height="25"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5b-Iz-wWY">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5b-Iz-wWY">
                                                                 <rect key="frame" x="0.0" y="0.0" width="351.66666666666669" height="25"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -105,14 +105,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1p5-zr-cr8">
                                                 <rect key="frame" x="5" y="5" width="383" height="60"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="l9R-Jb-SH3">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="l9R-Jb-SH3">
                                                         <rect key="frame" x="0.0" y="0.0" width="383" height="60"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HDp-o8-WtP">
-                                                                <rect key="frame" x="0.0" y="13" width="161.66666666666666" height="34.333333333333336"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="161.66666666666666" height="60"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rzf-1l-kry">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="34.333333333333336"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="60"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain" title="-">
                                                                             <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
@@ -122,13 +122,13 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5a-RX-T3p">
-                                                                        <rect key="frame" x="54" y="0.0" width="53.666666666666657" height="34.333333333333336"/>
+                                                                        <rect key="frame" x="54" y="0.0" width="53.666666666666657" height="60"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obg-tD-940" userLabel="+">
-                                                                        <rect key="frame" x="107.66666666666669" y="0.0" width="54" height="34.333333333333336"/>
+                                                                        <rect key="frame" x="107.66666666666669" y="0.0" width="54" height="60"/>
                                                                         <state key="normal" title="Button"/>
                                                                         <buttonConfiguration key="configuration" style="plain" title="+">
                                                                             <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
@@ -142,11 +142,11 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dQ5-mJ-NRM">
                                                                 <rect key="frame" x="221.66666666666663" y="0.0" width="161.33333333333337" height="60"/>
                                                                 <subviews>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2Rz-1a-zfY">
-                                                                        <rect key="frame" x="-4.6666666666666572" y="13" width="170.33333333333334" height="34.333333333333336"/>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2Rz-1a-zfY">
+                                                                        <rect key="frame" x="-4.6666666666666572" y="15" width="170.33333333333334" height="30"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bb8-0s-l3O" userLabel="Add">
-                                                                                <rect key="frame" x="0.0" y="2" width="115.66666666666667" height="30"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="115.66666666666667" height="30"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="30" id="1LQ-B0-nTg"/>
                                                                                 </constraints>
@@ -155,14 +155,14 @@
                                                                                     <color key="baseForegroundColor" systemColor="systemGray6Color"/>
                                                                                 </buttonConfiguration>
                                                                                 <connections>
-                                                                                    <action selector="addButtonPressed:" destination="96N-og-fjd" eventType="touchUpInside" id="5i1-uC-H2Q"/>
+                                                                                    <action selector="addButtonPressed:" destination="96N-og-fjd" eventType="touchUpInside" id="gSj-fc-aKE"/>
                                                                                 </connections>
                                                                             </button>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Fe-dp-mmR">
-                                                                                <rect key="frame" x="119.6666666666667" y="0.0" width="50.666666666666671" height="34.333333333333336"/>
+                                                                                <rect key="frame" x="119.6666666666667" y="0.0" width="50.666666666666671" height="30"/>
                                                                                 <state key="normal" title="Button"/>
                                                                                 <buttonConfiguration key="configuration" style="filled" image="heart" catalog="system">
-                                                                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                                                                 </buttonConfiguration>
                                                                                 <connections>
                                                                                     <action selector="likeButtonPressed:" destination="96N-og-fjd" eventType="touchUpInside" id="4cB-1Z-aMh"/>
@@ -247,6 +247,9 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
