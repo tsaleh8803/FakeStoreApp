@@ -287,7 +287,6 @@
 			children = (
 				04D52FF82A8F821500E3BC03 /* MOCartProduct.swift */,
 				04D52FFC2A8F860E00E3BC03 /* CoreDataCartedProductsStore.swift */,
-				0453383E2A974F4800A3971E /* CartHandler.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -296,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				04D52F7E2A66782800E3BC03 /* CartProduct.swift */,
+				0453383E2A974F4800A3971E /* CartHandler.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";

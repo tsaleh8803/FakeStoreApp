@@ -32,7 +32,7 @@ final class ProductsViewController: UIViewController  {
         addChild(productsView)
         view.addSubview(productsView.view)
         productsView.didMove(toParent: self)
-        productsView.view.frame = view.bounds
+        productsView.view.frame = view.frame
     }
 
     @IBAction func viewToggleChanged() {
