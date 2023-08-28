@@ -9,7 +9,6 @@
 import Foundation
 
 struct RemoteProduct: Codable {
-
     let id: Int
     let title: String
     let price: Double
@@ -17,11 +16,9 @@ struct RemoteProduct: Codable {
     let category: String
     let image: String
     let rating: Rating
-
 }
 
 struct Rating: Codable {
     let rate: Double
     let count: Int
 }
-

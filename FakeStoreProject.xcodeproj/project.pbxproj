@@ -157,6 +157,7 @@
 				04D52F672A5FF14200E3BC03 /* Resources */,
 				04D52FCB2A8CC5ED00E3BC03 /* Protocols */,
 				04D52FD82A8E2B0200E3BC03 /* Composers */,
+				D318D1BF2A9CE4BD00FA3E0F /* Screens */,
 				04D52F662A5FF13500E3BC03 /* Controllers */,
 			);
 			path = FakeStoreProject;
@@ -329,6 +330,77 @@
 				04D52FA32A67C1E700E3BC03 /* FakeStoreProjectDataModel.xcdatamodeld */,
 			);
 			path = CoraData;
+			sourceTree = "<group>";
+		};
+		D318D1BF2A9CE4BD00FA3E0F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D318D1C12A9CE4D000FA3E0F /* Cart */,
+				D318D1C02A9CE4C900FA3E0F /* Product */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		D318D1C02A9CE4C900FA3E0F /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				D318D1C62A9CE50900FA3E0F /* Collection */,
+				D318D1C32A9CE4E300FA3E0F /* List */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		D318D1C12A9CE4D000FA3E0F /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				D318D1C82A9CE52300FA3E0F /* Views */,
+				D318D1C72A9CE51400FA3E0F /* Controller */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		D318D1C32A9CE4E300FA3E0F /* List */ = {
+			isa = PBXGroup;
+			children = (
+				D318D1C52A9CE4F100FA3E0F /* Views */,
+				D318D1C42A9CE4EB00FA3E0F /* Controller */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		D318D1C42A9CE4EB00FA3E0F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D318D1C52A9CE4F100FA3E0F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D318D1C62A9CE50900FA3E0F /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		D318D1C72A9CE51400FA3E0F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D318D1C82A9CE52300FA3E0F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
