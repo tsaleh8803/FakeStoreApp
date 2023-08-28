@@ -17,7 +17,6 @@ enum DetailsViewComposer {
         vc.deleteDelegate = likedStore
         vc.likeDelegate = likedStore
         vc.checkerDelegate = likedStore
-        vc.productIndex = index
         
         return vc
     }

@@ -15,12 +15,10 @@ class DetailsViewController: UIViewController {
 
     var defaultQuantityForCart = 1
     
-    var productIndex: Int?
-    
     public var cartDelegate: ProductToCartAdder?
     public var likeDelegate: ProductLiker?
     public var deleteDelegate: ProductDisliker?
-    public var checkerDelegate: CheckProduct?
+    public var checkerDelegate: LikedProductChecker?
     
     let heartImage = UIImage(systemName: "heart")
     let heartImageFilled = UIImage(systemName: "heart.fill")
@@ -42,7 +40,7 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         productDetails(product: product)
         do{
-            if try (checkerDelegate!.checkForProduct(product: product)) {
+            if try (checkerDelegate!.checkForLikedProduct(product: product)) {
                 likedButton.setImage(heartImageFilled, for: .normal)
             }
         }
@@ -84,7 +82,7 @@ class DetailsViewController: UIViewController {
     @IBAction func likeButtonPressed(_ sender: UIButton) {
 
         do {
-            if try (!checkerDelegate!.checkForProduct(product: product)) {
+            if try (!checkerDelegate!.checkForLikedProduct(product: product)) {
                 //product.isLiked = true
                 likedButton.setImage(heartImageFilled, for: .normal)
                 do {

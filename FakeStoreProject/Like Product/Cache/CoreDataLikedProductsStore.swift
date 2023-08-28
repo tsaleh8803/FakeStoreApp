@@ -3,7 +3,7 @@ import Foundation
 import UIKit
 import CoreData
 
-final class CoreDataLikedProductsStore: ProductLiker, ProductDisliker, CheckProduct, LikedProductsLoader {
+final class CoreDataLikedProductsStore: ProductLiker, ProductDisliker, LikedProductChecker, ProductsLoader {
   
     let context: NSManagedObjectContext
 
@@ -11,7 +11,7 @@ final class CoreDataLikedProductsStore: ProductLiker, ProductDisliker, CheckProd
         self.context = context
     }
     
-    func checkForProduct(product: Product) throws -> Bool {
+    func checkForLikedProduct(product: Product) throws -> Bool {
         var count = 0
         
         try context.performAndWait {
@@ -23,7 +23,7 @@ final class CoreDataLikedProductsStore: ProductLiker, ProductDisliker, CheckProd
     }
     
     public func likeProduct(product: Product) throws {
-        guard try !checkForProduct(product: product) else {
+        guard try !checkForLikedProduct(product: product) else {
             return
         }
         
@@ -52,14 +52,14 @@ final class CoreDataLikedProductsStore: ProductLiker, ProductDisliker, CheckProd
         }
     }
     
-    func fetchLikedProducts(completion: @escaping (Result<[LikedProduct], Error>) -> Void) {
+    func fetchProducts(completion: @escaping (Result<[Product], Error>) -> Void) {
         let context = self.context
         
         context.perform {
             completion(Result {
                 try context
                     .fetch(MOLikedProduct.fetchRequest())
-                    .map { $0.toLikedProduct() }
+                    .map { Product(id: Int($0.id), title: $0.title, price: $0.price, description: $0.description, category: $0.category, image: $0.image, rating: nil, isLiked: true) }
             })
         }
     }

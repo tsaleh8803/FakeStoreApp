@@ -17,7 +17,6 @@ class ProductCell: UITableViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        
         productImage.image = nil
         likedLabel.image = nil
     }

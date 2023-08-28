@@ -2,5 +2,5 @@
 import Foundation
 
 protocol LikedProductsLoader {
-    func fetchLikedProducts(completion: @escaping (Result<[LikedProduct],Error>) -> Void)
+    func fetchLikedProducts(completion: @escaping (Result<[Product],Error>) -> Void)
 }

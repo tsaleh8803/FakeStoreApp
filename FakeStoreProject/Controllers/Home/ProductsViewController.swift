@@ -2,21 +2,23 @@
 import UIKit
 import CoreData
 
-final class ProductsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
- 
+final class ProductsViewController: UIViewController  {
+
+    @IBOutlet weak var toggleView: UISegmentedControl!
     
-    @IBOutlet weak var tableView: UITableView!
+    var listViewController: UIViewController?
+    var collectionViewController: UIViewController?
     
     var productList = [Product]()
     
-    public var checkerDelegate: CheckProduct?
     var productsLoader: ProductsLoader!
+    
+    var childViewController: UIViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.delegate = self
-        tableView.dataSource = self
+        setUp()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -26,54 +28,50 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
             case .success(let products):
                 DispatchQueue.main.async {
                 self.productList = products
-                self.tableView.reloadData()
+                    self.setUp()
             }
             case .failure(let error):
                 print(String(describing: error))
             }
         }
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProductCell
-        let product = productList[indexPath.row]
-        cell.titleLabel.text = product.title
-        cell.categoryLabel.text = product.category
-        cell.priceLabel.text = "$\(String(product.price))"
-        if let url = URL(string: product.image) {
-            cell.productImage.downloaded(from: url )
-        }
-        cell.likedLabel.image = nil
-        do{
-            if try (checkerDelegate!.checkForProduct(product: product)) {
-                cell.likedLabel.image = UIImage(systemName: "heart.fill")
-            }
-        }
-        catch {
-            
-        }
 
-        return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let vc = DetailsViewComposer.createDetailsPage(product: productList[indexPath.row], index: indexPath.row)
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = view.backgroundColor
-        return headerView
+    private func setUp() {
+        listViewController = ProductsUIComposer.displayTableViewProducts(products: productList)
+        collectionViewController = CollectionViewComposer.displayCollectionViewProducts(products: productList)
         
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+        if let listView = listViewController, let collecView = collectionViewController {
+            self.addChild(listView)
+            self.addChild(collecView)
+            self.view.addSubview(listView.view)
+            self.view.addSubview(collecView.view)
+            
+            listView.didMove(toParent: self)
+            collecView.didMove(toParent: self)
+            
+            listView.view.frame = self.view.bounds
+            collecView.view.frame = self.view.bounds
+            
+            collecView.view.isHidden = true
+        }
     }
 
+    @IBAction func viewToggleChanged(_ sender: Any) {
+        
+        listViewController?.view.isHidden = true
+        collectionViewController?.view.isHidden = true
+        
+        if toggleView.selectedSegmentIndex == 0 {
+            listViewController?.view.isHidden = false
+            //listViewController = ProductsUIComposer.displayTableViewProducts(products: productList)
+            //self.navigationController?.pushViewController(listViewController!, animated: true)
+        }
+        else {
+            collectionViewController?.view.isHidden = false
+            //collectionViewController = CollectionViewComposer.displayCollectionViewProducts(products: productList)
+            //self.navigationController?.pushViewController(collectionViewController!, animated: true)
+
+        }
+    }
 }

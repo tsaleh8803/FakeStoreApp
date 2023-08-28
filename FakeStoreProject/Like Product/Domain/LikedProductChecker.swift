@@ -2,7 +2,7 @@
 import Foundation
 
 // TODO: Change to ProductLikeChecker
-protocol CheckProduct {
+protocol LikedProductChecker {
     // TODO: Change to checkProductLiked
-    func checkForProduct(product: Product) throws -> Bool
+    func checkForLikedProduct(product: Product) throws -> Bool
 }
