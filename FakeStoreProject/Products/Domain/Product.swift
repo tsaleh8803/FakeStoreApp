@@ -17,6 +17,7 @@ struct Product {
     let category: String
     let image: String
     let rating: Rating?
+    // TODO: Add is liked property
     
     init(id: Int, title: String, price: Double, description: String, category: String, image: String, rating: Rating?, isLiked: Bool) {
         self.id = id

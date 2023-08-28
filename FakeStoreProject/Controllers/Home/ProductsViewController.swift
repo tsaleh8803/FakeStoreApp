@@ -6,72 +6,69 @@ final class ProductsViewController: UIViewController  {
 
     @IBOutlet weak var toggleView: UISegmentedControl!
     
-    var listViewController: UIViewController?
-    var collectionViewController: UIViewController?
-    
+    var productsLoader: ProductsLoader!
     var productList = [Product]()
     
-    var productsLoader: ProductsLoader!
-    
-    var childViewController: UIViewController?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setUp()
-
-    }
+    var changeDisplay: ((Int, [Product]) -> Void)?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        productsLoader.fetchProducts { result in
+        
+        productsLoader.fetchProducts { [weak self] result in
             switch result {
             case .success(let products):
                 DispatchQueue.main.async {
-                self.productList = products
-                    self.setUp()
-            }
+                    self?.productList = products
+                    self?.viewToggleChanged()
+                }
             case .failure(let error):
                 print(String(describing: error))
             }
         }
-
     }
     
-    private func setUp() {
-        listViewController = ProductsUIComposer.displayTableViewProducts(products: productList)
-        collectionViewController = CollectionViewComposer.displayCollectionViewProducts(products: productList)
-        
-        if let listView = listViewController, let collecView = collectionViewController {
-            self.addChild(listView)
-            self.addChild(collecView)
-            self.view.addSubview(listView.view)
-            self.view.addSubview(collecView.view)
-            
-            listView.didMove(toParent: self)
-            collecView.didMove(toParent: self)
-            
-            listView.view.frame = self.view.bounds
-            collecView.view.frame = self.view.bounds
-            
-            collecView.view.isHidden = true
-        }
+    func display(_ productsView: ProductsView) {
+        removeAllChildren()
+        addChild(productsView)
+        view.addSubview(productsView.view)
+        productsView.didMove(toParent: self)
+        productsView.view.frame = view.bounds
     }
 
-    @IBAction func viewToggleChanged(_ sender: Any) {
-        
-        listViewController?.view.isHidden = true
-        collectionViewController?.view.isHidden = true
-        
-        if toggleView.selectedSegmentIndex == 0 {
-            listViewController?.view.isHidden = false
-            //listViewController = ProductsUIComposer.displayTableViewProducts(products: productList)
-            //self.navigationController?.pushViewController(listViewController!, animated: true)
-        }
-        else {
-            collectionViewController?.view.isHidden = false
-            //collectionViewController = CollectionViewComposer.displayCollectionViewProducts(products: productList)
-            //self.navigationController?.pushViewController(collectionViewController!, animated: true)
+    @IBAction func viewToggleChanged() {
+        changeDisplay?(toggleView.selectedSegmentIndex, productList)
+    }
+}
 
+protocol ProductsView: UIViewController {
+    var products: [Product] { get set }
+}
+
+enum ProductsUIComposer {
+    
+    static func make(with loader: ProductsLoader) -> UIViewController {
+        let storyboard = UIStoryboard(name: "ProductsViewController", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ProductsViewController") as! ProductsViewController
+        
+        vc.productsLoader = loader
+        vc.changeDisplay = { index, products in
+            let productsView: ProductsView = index == 0 ? ProductsListUIComposer.make(with: products) : ProductsCollectionUIComposer.make(with: products)
+            
+            vc.display(productsView)
+        }
+        
+        return vc
+    }
+}
+
+extension UIViewController {
+    func removeAllChildren() {
+        let viewControllers = children
+        
+        for viewContoller in viewControllers{
+            viewContoller.willMove(toParent: nil)
+            viewContoller.view.removeFromSuperview()
+            viewContoller.removeFromParent()
         }
     }
 }

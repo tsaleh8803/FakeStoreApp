@@ -4,9 +4,9 @@ import CoreData
 
 //MARK: - Collection View Alternative for Liked View Page
 //(Currently not used)
-final class ProductCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+final class ProductCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, ProductsView {
     
-    var productsList = [Product]()
+    var products = [Product]()
     
     var likedProductsLoader: ProductsLoader!
     
@@ -33,12 +33,12 @@ final class ProductCollectionViewController: UIViewController, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        productsList.count
+        products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! LikedProductCollectionViewCell
-        let product = productsList[indexPath.row]
+        let product = products[indexPath.row]
         cell.backgroundColor = .systemRed
         cell.nameLabel.text = product.title
         cell.priceLabel.text = String(product.price)

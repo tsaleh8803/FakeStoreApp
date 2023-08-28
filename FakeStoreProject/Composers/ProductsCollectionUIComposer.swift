@@ -3,13 +3,13 @@
 import Foundation
 import UIKit
 
-enum CollectionViewComposer {
+enum ProductsCollectionUIComposer {
     
-    public static func displayCollectionViewProducts(products: [Product]) -> UIViewController {
+    public static func make(with products: [Product]) -> ProductsView {
         let storyboard = UIStoryboard(name: "ProductCollectionViewController", bundle: nil)
-       // let vc = storyboard.instantiateInitialViewController() as! DetailsViewController
         let vc = storyboard.instantiateViewController(withIdentifier: "ProductCollectionViewController") as! ProductCollectionViewController
-        vc.productsList = products
+        vc.products = products
+        
         return vc
     }
 }
