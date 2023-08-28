@@ -19,7 +19,7 @@ class DetailsViewController: UIViewController {
     
     public var cartDelegate: ProductToCartAdder?
     public var likeDelegate: ProductLiker?
-    public var deleteDelegate: DeleteProduct?
+    public var deleteDelegate: ProductDisliker?
     public var checkerDelegate: CheckProduct?
     
     let heartImage = UIImage(systemName: "heart")
@@ -98,7 +98,7 @@ class DetailsViewController: UIViewController {
                 //product.isLiked = false
                 likedButton.setImage(heartImage,for: .normal)
                 do {
-                    try deleteDelegate?.deleteProduct(product: product)
+                    try deleteDelegate?.dislikeProduct(product: product)
                 }
                 catch{
                     

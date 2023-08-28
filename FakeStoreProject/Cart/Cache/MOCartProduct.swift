@@ -11,11 +11,6 @@ import CoreData
 
 @objc(MOCartProduct)
 public class MOCartProduct: NSManagedObject {
-    
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<MOCartProduct> {
-        return NSFetchRequest<MOCartProduct>(entityName: "MOCartProduct")
-    }
-
     @NSManaged public var image: String
     @NSManaged public var price: Double
     @NSManaged public var title: String
@@ -24,4 +19,7 @@ public class MOCartProduct: NSManagedObject {
     @NSManaged public var id: Int32
     @NSManaged public var quantity: Int32
 
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<MOCartProduct> {
+        return NSFetchRequest<MOCartProduct>(entityName: "MOCartProduct")
+    }
 }

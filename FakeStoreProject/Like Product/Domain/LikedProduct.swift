@@ -8,7 +8,6 @@
 import Foundation
 
 struct LikedProduct {
-    
     let id: Int
     let title: String
     let price: Double

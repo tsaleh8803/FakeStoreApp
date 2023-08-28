@@ -2,7 +2,6 @@
 import Foundation
 
 struct CartProduct {
-    
     let id: Int
     let title: String
     let price: Double
@@ -12,5 +11,4 @@ struct CartProduct {
     let rating: Rating?
     var isLiked: Bool
     var quantity: Int
-    
 }

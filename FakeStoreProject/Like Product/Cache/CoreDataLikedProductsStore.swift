@@ -3,7 +3,7 @@ import Foundation
 import UIKit
 import CoreData
 
-final class CoreDataLikedProductsStore: ProductLiker, DeleteProduct, CheckProduct, LikedProductsLoader {
+final class CoreDataLikedProductsStore: ProductLiker, ProductDisliker, CheckProduct, LikedProductsLoader {
   
     let context: NSManagedObjectContext
 
@@ -40,7 +40,7 @@ final class CoreDataLikedProductsStore: ProductLiker, DeleteProduct, CheckProduc
         }
     }
     
-    public func deleteProduct(product: Product) throws {
+    public func dislikeProduct(product: Product) throws {
         try context.performAndWait {
             let request = MOLikedProduct.fetchRequest()
             request.predicate = NSPredicate(format: "id == %@", NSNumber(value: product.id))
