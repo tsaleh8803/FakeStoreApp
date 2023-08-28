@@ -3,11 +3,9 @@ import Foundation
 import UIKit
 import CoreData
 
-final class CoreDataLikedProductsStore: ProductLiker, DeleteProduct, CheckProduct, ProductsLoader {
+final class CoreDataLikedProductsStore: ProductLiker, DeleteProduct, CheckProduct, LikedProductsLoader {
   
     let context: NSManagedObjectContext
-    
-    typealias LoadedProduct = Product
 
     init(context: NSManagedObjectContext) {
         self.context = context
@@ -54,20 +52,21 @@ final class CoreDataLikedProductsStore: ProductLiker, DeleteProduct, CheckProduc
         }
     }
     
-    func fetchProducts(completion: @escaping (Result<[LoadedProduct], Error>) -> Void) {
+    func fetchLikedProducts(completion: @escaping (Result<[LikedProduct], Error>) -> Void) {
         let context = self.context
         
         context.perform {
-            do {
-                let likedProductsFromCore = try context.fetch(MOLikedProduct.fetchRequest())
-                let likedProducts = likedProductsFromCore.map { product in
-                    Product(id: Int(product.id), title: product.title, price: product.price, description: product.desc, category: product.category, image: product.image, rating: nil, isLiked: true)
-                }
-                
-                completion(.success(likedProducts))
-            } catch {
-                completion(.failure(error))
-            }
+            completion(Result {
+                try context
+                    .fetch(MOLikedProduct.fetchRequest())
+                    .map { $0.toLikedProduct() }
+            })
         }
     }
+}
+extension MOLikedProduct {
+    func toLikedProduct() -> LikedProduct {
+        LikedProduct(id: Int(id), title: title, price: price, description: desc, category: category, image: image, rating: nil, isLiked: true)
+    }
+    
 }

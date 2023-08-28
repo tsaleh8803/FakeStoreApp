@@ -98,7 +98,7 @@ final class CartViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let product = Product(cartProduct: cartProducts[indexPath.row])
-        let vc = DetailsViewComposer.createDetailsPage(product: product)
+        let vc = DetailsViewComposer.createDetailsPage(product: product, index: indexPath.row)
         self.navigationController?.pushViewController(vc, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }

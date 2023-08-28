@@ -10,10 +10,7 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
     var productList = [Product]()
     
     public var checkerDelegate: CheckProduct?
-    
     var productsLoader: ProductsLoader!
-    
-    //var loadProducts: (() -> ((Result<[Product], Error>) -> Void))?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +62,7 @@ final class ProductsViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = DetailsViewComposer.createDetailsPage(product: productList[indexPath.row])
+        let vc = DetailsViewComposer.createDetailsPage(product: productList[indexPath.row], index: indexPath.row)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

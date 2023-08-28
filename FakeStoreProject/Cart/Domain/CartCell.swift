@@ -23,6 +23,8 @@ class CartCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
+        super.prepareForReuse()
+        productImageView.image = nil
         minusButton.titleLabel?.text = nil
         minusButton.setImage(nil, for: .normal)
         plusButton.setImage(UIImage(systemName: "plus"), for: .normal)

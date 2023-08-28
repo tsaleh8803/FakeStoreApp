@@ -6,25 +6,26 @@ import CoreData
 //(Currently not used)
 final class LikedProductsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    let collectionView: UICollectionView!
+    var likedProducts = [LikedProduct]()
     
-    var likedProducts = [Product]()
+    var likedProductsLoader: LikedProductsLoader!
     
-    let likedProductsLoader: ProductsLoader!
-  
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemRed
+        collectionView.delegate = self
+        collectionView.dataSource = self
         title = "Liked"
-        view.addSubview(collectionView)
-        likedProductsLoader.fetchProducts { result in
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        likedProductsLoader.fetchLikedProducts { result in
             switch result {
             case .success(let products):
                 self.likedProducts = products
+                self.collectionView.reloadData()
             case .failure(let failure):
                 print(String(describing: failure))
             }
@@ -36,17 +37,14 @@ final class LikedProductsViewController: UIViewController, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LikedProductCollectionViewCell.identifier, for: indexPath) as? LikedProductCollectionViewCell else {
-            fatalError("Unsupported cell")
-        }
-        cell.configure(for: likedProducts[indexPath.row])
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! LikedProductCollectionViewCell
+        let product = likedProducts[indexPath.row]
+        cell.backgroundColor = .systemRed
+        cell.nameLabel.text = product.title
+        cell.priceLabel.text = String(product.price)
+        cell.productImageView.downloaded(from: URL(string: product.image)!)
         
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let bounds = UIScreen.main.bounds
-        let width = (bounds.width-30)/2
-        return CGSize(width: width, height: width*1.5)
-    }
 }

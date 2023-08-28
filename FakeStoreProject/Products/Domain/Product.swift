@@ -17,7 +17,6 @@ struct Product {
     let category: String
     let image: String
     let rating: Rating?
-    var isLiked: Bool // TODO: Remove isLiked
     
     init(id: Int, title: String, price: Double, description: String, category: String, image: String, rating: Rating?, isLiked: Bool) {
         self.id = id
@@ -27,7 +26,6 @@ struct Product {
         self.category = category
         self.image = image
         self.rating = rating
-        self.isLiked = isLiked
     }
     
     init(cartProduct: CartProduct) {
@@ -38,7 +36,6 @@ struct Product {
         self.category = cartProduct.category
         self.image = cartProduct.image
         self.rating = cartProduct.rating
-        self.isLiked = cartProduct.isLiked
     }
 }
 

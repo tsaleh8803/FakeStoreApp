@@ -12,10 +12,10 @@ import CoreData
 class DetailsViewController: UIViewController {
 
     var product: Product!
-    
-    var likedProductList = [MOLikedProduct]()
-    
+
     var defaultQuantityForCart = 1
+    
+    var productIndex: Int?
     
     public var cartDelegate: ProductToCartAdder?
     public var likeDelegate: ProductLiker?
@@ -36,6 +36,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var increaseQuantityButton: UIButton!
     @IBOutlet weak var decreaseQuantityButton: UIButton!
     @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,9 +55,17 @@ class DetailsViewController: UIViewController {
         titleLabel.text = product.title
         categoryLabel.text = product.category
         priceLabel.text = "$\(String(product.price))"
-        descriptionLabel.text = product.description
+        descriptionTextView.text = product.description
         productImage.downloaded(from: URL(string: product.image)!)
         quantityLabel.text = String(defaultQuantityForCart)
+    }
+    
+    @IBAction func goToNextProduct(_ sender: Any) {
+
+    }
+    
+    @IBAction func goToPreviousProduct(_ sender: Any) {
+        
     }
 
     @IBAction func quantityIncreaseButtonPressed(_ sender: Any) {
@@ -76,7 +85,7 @@ class DetailsViewController: UIViewController {
 
         do {
             if try (!checkerDelegate!.checkForProduct(product: product)) {
-                product.isLiked = true
+                //product.isLiked = true
                 likedButton.setImage(heartImageFilled, for: .normal)
                 do {
                     try likeDelegate?.likeProduct(product: product)
@@ -86,7 +95,7 @@ class DetailsViewController: UIViewController {
                 }
             }
             else {
-                product.isLiked = false
+                //product.isLiked = false
                 likedButton.setImage(heartImage,for: .normal)
                 do {
                     try deleteDelegate?.deleteProduct(product: product)

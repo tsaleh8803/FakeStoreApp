@@ -4,7 +4,7 @@ import UIKit
 
 enum DetailsViewComposer {
     
-    public static func createDetailsPage(product: Product) -> UIViewController {
+    public static func createDetailsPage(product: Product, index: Int) -> UIViewController {
         let storyboard = UIStoryboard(name: "DetailsViewController", bundle: nil)
        // let vc = storyboard.instantiateInitialViewController() as! DetailsViewController
         let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
@@ -17,6 +17,7 @@ enum DetailsViewComposer {
         vc.deleteDelegate = likedStore
         vc.likeDelegate = likedStore
         vc.checkerDelegate = likedStore
+        vc.productIndex = index
         
         return vc
     }
