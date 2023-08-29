@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class LikedProductCollectionViewCell: UICollectionViewCell {
+class ProductCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!

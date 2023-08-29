@@ -7,198 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "93CD9CD1-42A9-4B69-B946-975709E5BB73"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FakeStoreProject/Resources/UIImageView+Extensions.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "10"
-            endingLineNumber = "10"
-            landmarkName = "downloaded(from:contentMode:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "93CD9CD1-42A9-4B69-B946-975709E5BB73 - 3163c9ea70c5299"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in __C.UIImageView.downloaded(from: Foundation.URL, contentMode: __C.UIViewContentMode) -&gt; ()"
-                  moduleName = "FakeStoreProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/FakeStoreApp/FakeStoreProject/Resources/UIImageView+Extensions.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "301">
-               </Location>
-               <Location
-                  uuid = "93CD9CD1-42A9-4B69-B946-975709E5BB73 - 3163c9ea70c5299"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in __C.UIImageView.downloaded(from: Foundation.URL, contentMode: __C.UIViewContentMode) -&gt; ()"
-                  moduleName = "FakeStoreProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/FakeStoreApp/FakeStoreProject/Resources/UIImageView+Extensions.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "489">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2AAA80CF-C49D-4131-8248-8B4AC7C6FC06"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FakeStoreProject/Resources/UIImageView+Extensions.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11"
-            landmarkName = "downloaded(from:contentMode:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2AAA80CF-C49D-4131-8248-8B4AC7C6FC06 - 3163c9ea70c52f8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in __C.UIImageView.downloaded(from: Foundation.URL, contentMode: __C.UIViewContentMode) -&gt; ()"
-                  moduleName = "FakeStoreProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/FakeStoreApp/FakeStoreProject/Resources/UIImageView+Extensions.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "543">
-               </Location>
-               <Location
-                  uuid = "2AAA80CF-C49D-4131-8248-8B4AC7C6FC06 - 3163c9ea70c52f8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in __C.UIImageView.downloaded(from: Foundation.URL, contentMode: __C.UIViewContentMode) -&gt; ()"
-                  moduleName = "FakeStoreProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/FakeStoreApp/FakeStoreProject/Resources/UIImageView+Extensions.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "900">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8CA34E94-CB36-4D3E-ACCD-E2661CF990D4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FakeStoreProject/Resources/UIImageView+Extensions.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "downloaded(from:contentMode:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8CA34E94-CB36-4D3E-ACCD-E2661CF990D4 - 3163c9ea70c52db"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in __C.UIImageView.downloaded(from: Foundation.URL, contentMode: __C.UIViewContentMode) -&gt; ()"
-                  moduleName = "FakeStoreProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/FakeStoreApp/FakeStoreProject/Resources/UIImageView+Extensions.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "1048">
-               </Location>
-               <Location
-                  uuid = "8CA34E94-CB36-4D3E-ACCD-E2661CF990D4 - 3163c9ea70c52db"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in __C.UIImageView.downloaded(from: Foundation.URL, contentMode: __C.UIViewContentMode) -&gt; ()"
-                  moduleName = "FakeStoreProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/FakeStoreApp/FakeStoreProject/Resources/UIImageView+Extensions.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "1125">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FC74E862-F162-488F-95A7-7CE9C2426CD3"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FakeStoreProject/Resources/UIImageView+Extensions.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "downloaded(from:contentMode:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FC74E862-F162-488F-95A7-7CE9C2426CD3 - 3163c9ea70c533a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in __C.UIImageView.downloaded(from: Foundation.URL, contentMode: __C.UIViewContentMode) -&gt; ()"
-                  moduleName = "FakeStoreProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/FakeStoreApp/FakeStoreProject/Resources/UIImageView+Extensions.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "1257">
-               </Location>
-               <Location
-                  uuid = "FC74E862-F162-488F-95A7-7CE9C2426CD3 - 3163c9ea70c533a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in __C.UIImageView.downloaded(from: Foundation.URL, contentMode: __C.UIViewContentMode) -&gt; ()"
-                  moduleName = "FakeStoreProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/FakeStoreApp/FakeStoreProject/Resources/UIImageView+Extensions.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "18"
-                  endingLineNumber = "18"
-                  offsetFromSymbolStart = "1350">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "D708AA2E-4A1F-4A59-B342-85395348B4D6"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -209,22 +17,6 @@
             startingLineNumber = "18"
             endingLineNumber = "18"
             landmarkName = "increaseQuantity(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D647E03A-B78E-4208-A343-6A9BADF3D831"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FakeStoreProject/Cart/Cache/CoreDataCartedProductsStore.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "removeProduct(product:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -334,10 +126,8 @@
             filePath = "FakeStoreProject/Composers/ProductsUIComposer.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "9"
-            endingLineNumber = "9"
-            landmarkName = "displayTableViewProducts(products:)"
-            landmarkType = "7">
+            startingLineNumber = "4"
+            endingLineNumber = "4">
             <Locations>
                <Location
                   uuid = "ABB9F2C0-0DE5-4035-B04A-FB3147E95E5D - 8dc807282ceb20a3"
@@ -398,9 +188,9 @@
             filePath = "FakeStoreProject/Controllers/Home/ProductsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "viewToggleChanged(_:)"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "removeAllChildren()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -446,9 +236,9 @@
             filePath = "FakeStoreProject/Controllers/Home/ProductsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "viewToggleChanged(_:)"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "removeAllChildren()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -496,7 +286,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "9"
             endingLineNumber = "9"
-            landmarkName = "displayTableViewProducts(products:)"
+            landmarkName = "make(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -512,7 +302,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "12"
             endingLineNumber = "12"
-            landmarkName = "displayTableViewProducts(products:)"
+            landmarkName = "make(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

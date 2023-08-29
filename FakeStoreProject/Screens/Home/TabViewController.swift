@@ -12,7 +12,7 @@ final class TabViewController: UITabBarController {
         let context = CoreDataContext.context()
         
         let homeProductsVC = ProductsUIComposer.make(with: RemoteProductsLoader())
-        let likedProductsVC = CartViewComposer.createCartPage(with: CoreDataCartedProductsStore(context: context))
+        let likedProductsVC = ProductsUIComposer.make(with: CoreDataLikedProductsStore(context: context))
         let cartProductsVC = CartViewComposer.createCartPage(with: CoreDataCartedProductsStore(context: context))
         
         homeProductsVC.title = "Products"
