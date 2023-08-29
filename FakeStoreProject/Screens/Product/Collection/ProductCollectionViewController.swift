@@ -8,6 +8,8 @@ final class ProductCollectionViewController: UIViewController, UICollectionViewD
     
     var likedProductsLoader: ProductsLoader!
     
+    var checkerDelegate: LikedProductChecker?
+    
     @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
@@ -27,12 +29,22 @@ final class ProductCollectionViewController: UIViewController, UICollectionViewD
         cell.nameLabel.text = product.title
         cell.priceLabel.text = "$\(String(product.price))"
         cell.productImageView.downloaded(from: URL(string: product.image)!)
-        
+        cell.likedLabel.image = nil
+        do{
+            if try (checkerDelegate!.checkForLikedProduct(product: product)) {
+                cell.likedLabel.image = UIImage(systemName: "heart.fill")
+            }
+        }
+        catch {
+            
+        }
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 175, height: 300)
+        let bounds = UIScreen.main.bounds
+        let width = (bounds.width-50)/2
+        return CGSize(width: width, height: width*1.5)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
