@@ -127,7 +127,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "4"
-            endingLineNumber = "4">
+            endingLineNumber = "4"
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   uuid = "ABB9F2C0-0DE5-4035-B04A-FB3147E95E5D - 8dc807282ceb20a3"

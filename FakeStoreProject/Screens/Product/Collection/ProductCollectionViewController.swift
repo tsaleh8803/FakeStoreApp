@@ -32,7 +32,12 @@ final class ProductCollectionViewController: UIViewController, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 180, height: 300)
+        return CGSize(width: 175, height: 300)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = DetailsViewComposer.createDetailsPage(product: products[indexPath.row], index: indexPath.row)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

@@ -10,10 +10,13 @@ final class ProductsViewController: UIViewController  {
     var productList = [Product]()
     
     var changeDisplay: ((Int, [Product]) -> Void)?
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        fetchAllProducts()
+    }
+    
+    public func fetchAllProducts() {
         productsLoader.fetchProducts { [weak self] result in
             switch result {
             case .success(let products):

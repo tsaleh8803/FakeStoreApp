@@ -25,10 +25,9 @@ class DetailsViewController: UIViewController {
 
     @IBOutlet weak var productImage: UIImageView!
     
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var titleLabel: UITextView!
+    @IBOutlet weak var priceLabel: UITextView!
+    @IBOutlet weak var categoryLabel: UITextView!
     @IBOutlet weak var likedButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var increaseQuantityButton: UIButton!
@@ -56,14 +55,6 @@ class DetailsViewController: UIViewController {
         descriptionTextView.text = product.description
         productImage.downloaded(from: URL(string: product.image)!)
         quantityLabel.text = String(defaultQuantityForCart)
-    }
-    
-    @IBAction func goToNextProduct(_ sender: Any) {
-
-    }
-    
-    @IBAction func goToPreviousProduct(_ sender: Any) {
-        
     }
 
     @IBAction func quantityIncreaseButtonPressed(_ sender: Any) {

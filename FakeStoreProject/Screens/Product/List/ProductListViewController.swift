@@ -4,9 +4,11 @@ import UIKit
 
 final class ProductListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ProductsView {
     
-    
+    private var contentOffset: CGPoint?
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var scrollIndex: IndexPath?
             
     var products: [Product] = []
     var checkerDelegate: LikedProductChecker?
@@ -14,6 +16,13 @@ final class ProductListViewController: UIViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
+
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        if let scrollIndex {
+            tableView.scrollToRow(at: scrollIndex, at: .top, animated: true)
+        }
     }
     
     
@@ -45,18 +54,9 @@ final class ProductListViewController: UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        scrollIndex = indexPath
         let vc = DetailsViewComposer.createDetailsPage(product: products[indexPath.row], index: indexPath.row)
         self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = view.backgroundColor
-        return headerView
-        
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
     }
 
 }

@@ -8,16 +8,16 @@ final class TabViewController: UITabBarController {
         setUpTabBar()
     }
     
-    private func setUpTabBar() {
+    public func setUpTabBar() {
         let context = CoreDataContext.context()
         
         let homeProductsVC = ProductsUIComposer.make(with: RemoteProductsLoader())
         let likedProductsVC = ProductsUIComposer.make(with: CoreDataLikedProductsStore(context: context))
         let cartProductsVC = CartViewComposer.createCartPage(with: CoreDataCartedProductsStore(context: context))
-        
+
         homeProductsVC.title = "Products"
         likedProductsVC.title = "Liked"
-     
+        
         homeProductsVC.navigationItem.largeTitleDisplayMode = .automatic
         likedProductsVC.navigationItem.largeTitleDisplayMode = .automatic
         cartProductsVC.navigationItem.largeTitleDisplayMode = .automatic
@@ -35,6 +35,7 @@ final class TabViewController: UITabBarController {
         nav3.tabBarItem = UITabBarItem(title: "Cart", image: UIImage(systemName: "cart"), tag: 3)
         
         setViewControllers([nav1,nav2,nav3], animated: true)
+        
     }
 
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -43,4 +44,5 @@ final class TabViewController: UITabBarController {
             rootView.popToRootViewController(animated: false)
         }
     }
+
 }

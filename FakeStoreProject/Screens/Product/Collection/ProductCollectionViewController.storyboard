@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SMk-A5-Q23">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="10" y="59" width="373" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Irb-I8-xuN">
                                     <size key="itemSize" width="165" height="257"/>
@@ -76,9 +76,9 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="SMk-A5-Q23" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="3Kl-Mi-FsP"/>
+                            <constraint firstItem="SMk-A5-Q23" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="3Kl-Mi-FsP"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="SMk-A5-Q23" secondAttribute="bottom" id="cy5-EO-rnf"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="SMk-A5-Q23" secondAttribute="trailing" id="rNi-Ht-BeD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="SMk-A5-Q23" secondAttribute="trailing" constant="10" id="rNi-Ht-BeD"/>
                             <constraint firstItem="SMk-A5-Q23" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="zff-LU-VNe"/>
                         </constraints>
                     </view>

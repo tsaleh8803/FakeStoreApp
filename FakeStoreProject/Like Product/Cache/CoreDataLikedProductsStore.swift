@@ -59,7 +59,7 @@ final class CoreDataLikedProductsStore: ProductLiker, ProductDisliker, LikedProd
             completion(Result {
                 try context
                     .fetch(MOLikedProduct.fetchRequest())
-                    .map { Product(id: Int($0.id), title: $0.title, price: $0.price, description: $0.description, category: $0.category, image: $0.image, rating: nil, isLiked: true) }
+                    .map { Product(id: Int($0.id), title: $0.title, price: $0.price, description: $0.desc, category: $0.category, image: $0.image, rating: nil, isLiked: true) }
             })
         }
     }
