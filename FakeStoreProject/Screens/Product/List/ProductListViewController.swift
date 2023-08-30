@@ -10,7 +10,13 @@ final class ProductListViewController: UIViewController, UITableViewDelegate, UI
     
     var scrollIndex: IndexPath?
             
-    var products: [Product] = []
+    var products: [Product] = [] {
+        didSet {
+            if isViewLoaded {
+                tableView.reloadData()
+            }
+        }
+    }
     var checkerDelegate: LikedProductChecker?
     
     override func viewDidLoad() {
@@ -18,13 +24,6 @@ final class ProductListViewController: UIViewController, UITableViewDelegate, UI
         tableView.dataSource = self
 
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        if let scrollIndex {
-            tableView.scrollToRow(at: scrollIndex, at: .top, animated: true)
-        }
-    }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count

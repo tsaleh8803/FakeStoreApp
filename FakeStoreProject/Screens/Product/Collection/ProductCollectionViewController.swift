@@ -4,7 +4,13 @@ import CoreData
 
 final class ProductCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, ProductsView, UICollectionViewDelegateFlowLayout {
     
-    var products = [Product]()
+    var products = [Product]() {
+        didSet {
+            if isViewLoaded {
+                collectionView.reloadData()
+            }
+        }
+    }
     
     var likedProductsLoader: ProductsLoader!
     

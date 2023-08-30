@@ -13,6 +13,12 @@ class ProductCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var productImageView: UIImageView!
+    @IBOutlet weak var likedLabel: UIImageView!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        productImageView.image = nil
+        likedLabel.image = nil
+    }
 }
 

@@ -6,7 +6,6 @@ enum DetailsViewComposer {
     
     public static func createDetailsPage(product: Product, index: Int) -> UIViewController {
         let storyboard = UIStoryboard(name: "DetailsViewController", bundle: nil)
-       // let vc = storyboard.instantiateInitialViewController() as! DetailsViewController
         let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
         vc.product = product
         

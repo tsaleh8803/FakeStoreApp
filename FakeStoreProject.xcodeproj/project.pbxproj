@@ -16,7 +16,6 @@
 		045338492A98F69400A3971E /* ProductsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045338482A98F69400A3971E /* ProductsLoader.swift */; };
 		0453384B2A98F6C500A3971E /* LikedProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0453384A2A98F6C500A3971E /* LikedProduct.swift */; };
 		0453384D2A9C925100A3971E /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0453384C2A9C925100A3971E /* ProductListViewController.swift */; };
-		045338512A9C9F7A00A3971E /* ChangeViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045338502A9C9F7A00A3971E /* ChangeViewDelegate.swift */; };
 		045338532A9CA32800A3971E /* ProductsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 045338522A9CA32800A3971E /* ProductsViewController.storyboard */; };
 		0453385A2A9DDD8200A3971E /* ProductsUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045338592A9DDD8200A3971E /* ProductsUIComposer.swift */; };
 		04D52F502A5FF01E00E3BC03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D52F4F2A5FF01E00E3BC03 /* AppDelegate.swift */; };
@@ -66,7 +65,6 @@
 		045338482A98F69400A3971E /* ProductsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsLoader.swift; sourceTree = "<group>"; };
 		0453384A2A98F6C500A3971E /* LikedProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedProduct.swift; sourceTree = "<group>"; };
 		0453384C2A9C925100A3971E /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
-		045338502A9C9F7A00A3971E /* ChangeViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeViewDelegate.swift; sourceTree = "<group>"; };
 		045338522A9CA32800A3971E /* ProductsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductsViewController.storyboard; sourceTree = "<group>"; };
 		045338592A9DDD8200A3971E /* ProductsUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsUIComposer.swift; sourceTree = "<group>"; };
 		04D52F4C2A5FF01E00E3BC03 /* FakeStoreProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FakeStoreProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -268,7 +266,6 @@
 				045338462A98F50400A3971E /* ProductsCollectionUIComposer.swift */,
 				04D52FD02A8E0B3500E3BC03 /* DetailsViewComposer.swift */,
 				04D52FEC2A8F6C5500E3BC03 /* CartViewComposer.swift */,
-				045338502A9C9F7A00A3971E /* ChangeViewDelegate.swift */,
 				045338592A9DDD8200A3971E /* ProductsUIComposer.swift */,
 			);
 			path = Composers;
@@ -449,7 +446,6 @@
 				04D52FA92A69162B00E3BC03 /* ProductCollectionViewController.swift in Sources */,
 				04D52F712A6041DC00E3BC03 /* UIImageView+Extensions.swift in Sources */,
 				04D52FCA2A8CC59900E3BC03 /* LikedProductChecker.swift in Sources */,
-				045338512A9C9F7A00A3971E /* ChangeViewDelegate.swift in Sources */,
 				04D52FD52A8E28B700E3BC03 /* TableViewComposer.swift in Sources */,
 				0453383F2A974F4800A3971E /* CartHandler.swift in Sources */,
 				04D52FB82A6E6E9E00E3BC03 /* Product.swift in Sources */,

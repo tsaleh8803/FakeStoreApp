@@ -7,9 +7,19 @@ final class ProductsViewController: UIViewController  {
     @IBOutlet weak var toggleView: UISegmentedControl!
     
     var productsLoader: ProductsLoader!
-    var productList = [Product]()
+    
+    var productList = [Product]() {
+        didSet {
+            (children.first as? ProductsView)?.products = productList
+        }
+    }
     
     var changeDisplay: ((Int, [Product]) -> Void)?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewToggleChanged()
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -22,7 +32,6 @@ final class ProductsViewController: UIViewController  {
             case .success(let products):
                 DispatchQueue.main.async {
                     self?.productList = products
-                    self?.viewToggleChanged()
                 }
             case .failure(let error):
                 print(String(describing: error))
@@ -36,6 +45,7 @@ final class ProductsViewController: UIViewController  {
         view.addSubview(productsView.view)
         productsView.didMove(toParent: self)
         productsView.view.frame = view.frame
+        productsView.products = productList
     }
 
     @IBAction func viewToggleChanged() {

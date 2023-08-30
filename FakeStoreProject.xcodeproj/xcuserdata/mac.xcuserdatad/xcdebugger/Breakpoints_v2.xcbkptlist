@@ -119,54 +119,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ABB9F2C0-0DE5-4035-B04A-FB3147E95E5D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FakeStoreProject/Composers/ProductsUIComposer.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4"
-            endingLineNumber = "4"
-            landmarkName = "unknown"
-            landmarkType = "0">
-            <Locations>
-               <Location
-                  uuid = "ABB9F2C0-0DE5-4035-B04A-FB3147E95E5D - 8dc807282ceb20a3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static FakeStoreProject.ProductsUIComposer.displayTableViewProducts(with: FakeStoreProject.ProductsLoader) -&gt; __C.UIViewController"
-                  moduleName = "FakeStoreProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/FakeStoreApp/FakeStoreProject/Composers/ProductsUIComposer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "212">
-               </Location>
-               <Location
-                  uuid = "ABB9F2C0-0DE5-4035-B04A-FB3147E95E5D - 8dc807282ceb2006"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static FakeStoreProject.ProductsUIComposer.displayTableViewProducts(with: FakeStoreProject.ProductsLoader) -&gt; __C.UIViewController"
-                  moduleName = "FakeStoreProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/FakeStoreApp/FakeStoreProject/Composers/ProductsUIComposer.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "9"
-                  endingLineNumber = "9"
-                  offsetFromSymbolStart = "47">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "3C8DCDC8-D782-4650-8935-4A1DAA1F402B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -274,38 +226,6 @@
                   offsetFromSymbolStart = "1916">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F8E79BE7-9AC2-4750-BBCD-4B5CCCBD68C7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FakeStoreProject/Composers/TableViewComposer.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "9"
-            endingLineNumber = "9"
-            landmarkName = "make(with:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D86BD94D-C1F7-4305-9BB4-1C30BD4578CD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FakeStoreProject/Composers/TableViewComposer.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "make(with:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
